@@ -1,0 +1,6 @@
+# .gitignore
+*.pyc                       
+__pycache__          
+*~       
+*.sqlite3   #for SQLite                                                              
+# /static
