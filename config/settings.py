@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-party apps
+
+    # Local apps
+    'accounts',
+
 ]
 
 MIDDLEWARE = [
@@ -123,3 +129,11 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Tell Django to use custom user model we defined in 'accounts' app
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
+
+
+
