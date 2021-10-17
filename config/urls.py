@@ -17,5 +17,5 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('skeladmin/', admin.site.urls),    #Remember to update URL before deployment
 ]
