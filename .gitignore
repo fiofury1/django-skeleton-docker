@@ -3,5 +3,6 @@
 __pycache__          
 *~       
 #For SQLite files
-*.sqlite3                                                   
-# /static
+*.sqlite3
+#For static files.                                                   
+/static
