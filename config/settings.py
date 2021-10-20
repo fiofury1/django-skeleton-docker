@@ -137,12 +137,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#Tells Django where to check for static files other than apps
+# Tells Django where to check for static files other than apps in development.
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-#Tells Django where to store static files collected using 'manage.py collectstatic' command 
+# Tells Django where to store static files collected using 'manage.py collectstatic' command
+# Location of static files during production. 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 #Secifies the 'file collection engine' used by collectstatic.
