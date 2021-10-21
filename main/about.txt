@@ -1,0 +1,4 @@
+This app was added to the project to test the project configuration, including 
+base template inheritence, testing, etc.
+
+You can delete this app or use it as the main app for your project.
