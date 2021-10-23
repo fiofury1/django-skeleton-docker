@@ -13,7 +13,7 @@ FROM python:3.9-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-# Set work directory
+# Set work directory.  Commands get executed relative to the specified WORKDIR. 
 WORKDIR /code
 # Install dependencies
 COPY Pipfile Pipfile.lock /code/
