@@ -6,3 +6,8 @@ __pycache__
 *.sqlite3
 #For static files.                                                   
 /static
+#For pytest
+.pytest_cache
+#For coverage
+.coverage
+htmlcov
