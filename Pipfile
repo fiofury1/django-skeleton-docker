@@ -11,6 +11,7 @@ whitenoise = "*"
 [dev-packages]
 pytest-django = "*"
 pytest-cov = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.9"
