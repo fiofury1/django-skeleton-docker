@@ -163,7 +163,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Tells Django to use custom user model we defined in 'accounts' app
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-# Tells where to redirect upon login
+# Tells where to redirect upon login and logout
 LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 
