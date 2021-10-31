@@ -17,6 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # Django Admin
     path('skeladmin/', admin.site.urls),    #Remember to update URL before deployment
+    
+    # User Management
+    path('accounts/', include('django.contrib.auth.urls')),
+    
+    # Local Apps
     path('', include('main.urls')),
 ]

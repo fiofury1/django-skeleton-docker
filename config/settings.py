@@ -85,24 +85,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 #Database setting using local SQLite database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-#Database settings using local PostgreSQL database
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'django_skeleton',
-#         'USER': 'skeleton',
-#         'PASSWORD': 'skeleton_password',
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
-#  }
+# }
+
+#Database settings using local PostgreSQL database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_skeleton',
+        'USER': 'skeleton',
+        'PASSWORD': 'skeleton_password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+ }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -160,10 +160,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Tell Django to use custom user model we defined in 'accounts' app
+# Tells Django to use custom user model we defined in 'accounts' app
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-
-
+# Tells where to redirect upon login
+LOGIN_REDIRECT_URL = 'index'
 
 
