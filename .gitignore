@@ -11,3 +11,6 @@ __pycache__
 #For coverage
 .coverage
 htmlcov
+#Visual Studio Code Workspace
+*.code-workspace
+
