@@ -21,6 +21,7 @@ urlpatterns = [
     path('skeladmin/', admin.site.urls),    #Remember to update URL before deployment
     
     # User Management
+    path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     
     # Local Apps

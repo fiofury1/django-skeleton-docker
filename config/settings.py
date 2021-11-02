@@ -164,7 +164,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Tells where to redirect upon login and logout
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'main:index'
+LOGOUT_REDIRECT_URL = 'main:index'
 
 
