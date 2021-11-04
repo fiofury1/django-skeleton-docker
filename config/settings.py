@@ -151,7 +151,7 @@ STATICFILES_DIRS = [
 # Location of static files during production. 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-#Secifies the 'file collection engine' used by collectstatic.
+#Specifies the 'file collection engine' used by collectstatic.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 
