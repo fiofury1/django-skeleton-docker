@@ -1,0 +1,26 @@
+This is a Django project with standard functions setup so that the project can be used as
+a starter template for other projects.
+
+The following functionality has been set up:
+- CustomUser Model
+---- Setup in 'accounts' app
+---- Extends 'AbstractUser' with no additional fields added.
+- Database (need to add writup)
+- Docker (need to add writeup)
+- Login and Registration (need to add writeup)
+- Static Files 
+---- Static file collection with 'whitenoise' 
+---- Project level static file directory ('static/') in project root
+---- Static files collected in 'staticfiles/' in project root
+- Templates
+---- Project level templates folder ('templates/') in project root
+----  ---- Includes 'registration/' subfolder for login and registration related templates 
+---- App related templates to be placed in <app_name>/templates/<app_name> folder(s)
+- Testing (need to add writeup)
+- Misc/Other
+---- Time Zone as 'America/New York'
+
+
+When cloning/forking the project please make the following updates:
+1.  Update Django Admin URL
+2.  Update Time Zone as needed
