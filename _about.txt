@@ -24,3 +24,4 @@ The following functionality has been set up:
 When cloning/forking the project please make the following updates:
 1.  Update Django Admin URL
 2.  Update Time Zone as needed
+3.  Email Settings
