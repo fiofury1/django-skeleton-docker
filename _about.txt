@@ -1,12 +1,24 @@
 This is a Django project with standard functions setup so that the project can be used as
 a starter template for other projects.
 
+Django Version:  Django 3.2.8
+
 The following functionality has been set up:
 - CustomUser Model
 ---- Setup in 'accounts' app
 ---- Extends 'AbstractUser' with no additional fields added.
 - Database (need to add writup)
 - Docker (need to add writeup)
+- Email
+---- Setup for SMTP (i.e. 
+     EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend)
+---- Settings read from .env  
+---- Manually tested with Django development server using SendGrid
+---- Commended out code to send email to console (i.e.  
+     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend')
+---- Test settings (test_settings.py) uses localmem (i.e. 
+     EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend')
+- Environment Variables using .env file.  Read into Virtual Environment by Pipenv.
 - Login and Registration (need to add writeup)
 - Static Files 
 ---- Static file collection with 'whitenoise' 
@@ -17,11 +29,16 @@ The following functionality has been set up:
 ----  ---- Includes 'registration/' subfolder for login and registration related templates 
 ---- App related templates to be placed in <app_name>/templates/<app_name> folder(s)
 - Testing (need to add writeup)
+- Virtual Environment 
+---- Pipenv
+---- Not environment variables loaded from .env by Pipenv 
 - Misc/Other
 ---- Time Zone as 'America/New York'
 
 
-When cloning/forking the project please make the following updates:
+When cloning/forking the project please the updates below.  Depending on the update, the update
+will need to be made in .env, settings.py, or other possibly another location.
 1.  Update Django Admin URL
 2.  Update Time Zone as needed
-3.  Email Settings
+3.  Database settings
+4.  Email Settings

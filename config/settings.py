@@ -11,6 +11,30 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+# For getting Environment Variables
+# --- Snip from "Two Scoops of Django" ---
+# Normally you should not import ANYTHING from Django directly
+# into your settings, but ImproperlyConfigured is an exception.
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_variable(var_name):
+    """Get the environment variable or return exception."""
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = f'Set the {var_name} environment variable'
+        raise ImproperlyConfigured(error_msg)
+
+# --- End Snip ---
+def to_int_unless_string(var):
+    """Convert strings of integers to integers, but keep all other strings as strings"""
+    try:
+        return int(var)
+    except ValueError:
+        return var
+# End 'For Environment Variables'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +44,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@wuq3u6**7a&^n$_mv3_ofw-$)fpf@yb$ono=hdhv*u9*1aays'
+SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(get_env_variable('DJANGO_DEBUG'))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
 
 
 # Application definition
@@ -95,12 +120,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #Database settings using local PostgreSQL database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_skeleton',
-        'USER': 'skeleton',
-        'PASSWORD': 'skeleton_password',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': get_env_variable('DB_ENGINE'),
+        'NAME': get_env_variable('DB_NAME'),
+        'USER': get_env_variable('DB_USER'),
+        'PASSWORD': get_env_variable('DB_PASSWORD'),
+        'HOST': get_env_variable('DB_HOST'),
+        'PORT': to_int_unless_string(get_env_variable('DB_PORT')),
     }
  }
 
@@ -168,5 +193,14 @@ LOGIN_REDIRECT_URL = 'main:index'
 LOGOUT_REDIRECT_URL = 'main:index'
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# To Mail to Console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# To Use SMTP
+EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
+DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = get_env_variable('EMAIL_HOST')
+EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = to_int_unless_string(get_env_variable('EMAIL_PORT'))
+EMAIL_USE_TLS = int(get_env_variable('EMAIL_USE_TLS'))
 
