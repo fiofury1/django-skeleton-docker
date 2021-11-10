@@ -28,8 +28,8 @@ def get_env_variable(var_name):
         raise ImproperlyConfigured(error_msg)
 
 # --- End Snip ---
-def to_int_unless_string(var):
-    """Convert strings of integers to integers, but keep all other strings as strings"""
+def string_int_to_int(var):
+    """Convert strings of integers to integers, but keep all other types the same."""
     try:
         return int(var)
     except ValueError:
@@ -125,7 +125,7 @@ DATABASES = {
         'USER': get_env_variable('DB_USER'),
         'PASSWORD': get_env_variable('DB_PASSWORD'),
         'HOST': get_env_variable('DB_HOST'),
-        'PORT': to_int_unless_string(get_env_variable('DB_PORT')),
+        'PORT': string_int_to_int(get_env_variable('DB_PORT')),
     }
  }
 
@@ -201,6 +201,6 @@ DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
 EMAIL_HOST = get_env_variable('EMAIL_HOST')
 EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = to_int_unless_string(get_env_variable('EMAIL_PORT'))
+EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
 EMAIL_USE_TLS = int(get_env_variable('EMAIL_USE_TLS'))
 
