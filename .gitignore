@@ -15,4 +15,5 @@ __pycache__
 htmlcov
 #Visual Studio Code Workspace
 *.code-workspace
-
+#Temporarily ignore Dockefile
+Dockerfile
