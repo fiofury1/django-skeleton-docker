@@ -7,6 +7,7 @@ name = "pypi"
 django = "==3.2.8"
 psycopg2-binary = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 pytest-django = "*"
