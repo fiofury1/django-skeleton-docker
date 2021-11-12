@@ -3,7 +3,7 @@
 __pycache__          
 *~       
 #For environment variables
-.env
+.env*
 #For SQLite files
 *.sqlite3
 #For static files.                                                   
