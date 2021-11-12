@@ -48,7 +48,7 @@ SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(get_env_variable('DJANGO_DEBUG'))
+DEBUG = bool(int(get_env_variable('DJANGO_DEBUG')))
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
 
@@ -202,5 +202,4 @@ EMAIL_HOST = get_env_variable('EMAIL_HOST')
 EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
-EMAIL_USE_TLS = int(get_env_variable('EMAIL_USE_TLS'))
-
+EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
