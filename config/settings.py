@@ -203,3 +203,11 @@ EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
 EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
+
+#For security
+SECURE_SSL_REDIRECT=bool(int(get_env_variable('SECURE_SSL_REDIRECT')))
+SECURE_HSTS_SECONDS=int(get_env_variable('SECURE_HSTS_SECONDS'))
+SECURE_HSTS_INCLUDE_SUBDOMAINS=bool(int(get_env_variable('SECURE_HSTS_INCLUDE_SUBDOMAINS')))
+SECURE_HSTS_PRELOAD=bool(int(get_env_variable('SECURE_HSTS_PRELOAD')))
+SESSION_COOKIE_SECURE=bool(int(get_env_variable('SESSION_COOKIE_SECURE')))
+CSRF_COOKIE_SECURE=bool(int(get_env_variable('CSRF_COOKIE_SECURE')))
