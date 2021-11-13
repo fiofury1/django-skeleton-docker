@@ -1,15 +1,18 @@
 This is a Django project starter template.
 
+This project makes no claim to be the best way to setup a django project.  
+It is simply that way that I know how to setup a Django project that works.
+
 Django Version:  Django 3.2.8
 
-The project has been set up with the following:
+The project has been set up with the following configuration:
 - CustomUser Model
 ---- Setup in 'accounts' app
 ---- Extends 'AbstractUser' with no additional fields added.
 - Database
 ---- Includes psycopg2 to run PostgreSQL
 - Docker
----- Not setup for Docker
+---- Not currently setup for Docker
 - Email
 ---- Setup for SMTP (i.e. 
      EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend)
@@ -57,4 +60,4 @@ the update will need to be made in .env, settings.py, or other possibly another 
 4.  Email Settings (in .env)
 
 When updating Django (Future)
-- Need to condsider added funtions and assignments in settings.py
+- Need to consider added functions and assignments in settings.py
