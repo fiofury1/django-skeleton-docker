@@ -1,63 +1,71 @@
-This is a Django project starter template.
+# Django-Skeleton #
 
-This project makes no claim to be the best way to setup a django project.  
-It is simply that way that I know how to setup a Django project that works.
+A Django project starter template preconfigured with minimal core functionality.
 
-Django Version:  Django 3.2.8
+Current Django Version: &nbsp;Django 3.2.8
 
-The project has been set up with the following configuration:
+### Disclaimer: ###
+This project makes no claim to be the best way to set up a Django project.  It is simply the way that I know how to set things up so the project works.
+
+## Functionality & Configuration ##
+The project has been set up with the following functionality/configuration:
 - CustomUser Model
----- Setup in 'accounts' app
----- Extends 'AbstractUser' with no additional fields added.
+     - Set up in 'accounts' app
+     - Extends 'AbstractUser' with no additional fields added.
 - Database
----- Includes psycopg2 to run PostgreSQL
-- Docker
----- Not currently setup for Docker
+     - Includes psycopg2 to run PostgreSQL
+- Docker - Not currently set up for Docker
 - Email
----- Setup for SMTP (i.e. 
+     - Configured for SMTP (i.e. 
      EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend)
----- Settings read from .env  
----- Manually tested with Django development server using SendGrid
----- Commended out code to send email to console (i.e.  
+     - Settings read from .env  
+     - Manually tested with Django development server using SendGrid
+     - Commended out code to send email to console (i.e.  
      EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend')
----- Test settings (test_settings.py) uses localmem (i.e. 
+     - Test settings (test_settings.py) uses localmem (i.e. 
      EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend')
-- Environment Variables using .env file.  Read into Virtual Environment by Pipenv.
+- Environment Variables 
+     - Uses .env file.  
+     - Read into Virtual Environment by Pipenv. 
 - 'main' app
----- Can be used or scrapped.
-- Login and registration
----- Implemented using Django included 'auth' app.
----- URLs/Views not included by 'auth' (i.e. Signup) included in 'accounts/' app.
----- Functionality implemented:
----- ---- Signup (no email confirm)
----- ---- Login
----- ---- Logout
----- ---- Password Reset (with confirm email)
----- ---- Password Change
----- HTML and email templates added to project level 'templates/registration/' folder.
-- Pipenv
----- Environment variables loaded from .env by Pipenv
+     - Can be used or scrapped.
 - Testing
----- Includes pytest / pytest-django
----- Only dummy tests included to confirm configuration works.
----- Project level tests to be included in the project level 'tests/' folder
+     - Includes pytest / pytest-django
+     - Only dummy tests included to confirm configuration works.
+     - Project level tests to be included in the project level tests folder
      (i.e. '<project_name>/tests/').  
----- App level tests intended to be saved in app level 'tests/' folder.
+     - App level tests intended to be saved in app level tests folder.
      (i.e. '<project_name>/<app_nam>/tests/').  This structure has been implemented in 
      the provided 'main' app.
----- Includes pytest-cov (i.e. "Coverage")
----- Includes Selenium
+     - Includes pytest-cov (i.e. "Coverage")
+     - Includes Selenium, but does not include a Web Driver.  You will need to install this into your environment.
+- User Management
+     - Implemented using Django included 'auth' app.
+     - URLs/Views not included by 'auth' (i.e. Sign-up) included in 'accounts/' app.
+     - Functionality implemented:
+          - Sign-up (no email confirm)
+          - Login
+          - Logout
+          - Password Reset (with confirm email)
+          - Password Change
+     - HTML and email templates added to project level 'templates/registration/' folder.
+- Virtual Environment
+     - Pipenv
+     - Environment variables loaded from .env by Pipenv 
 - Misc/Other
----- Time Zone as 'America/New York'
+     - Time Zone as 'America/New York'
 
 
-When cloning/forking the project please set/update make the updates below.  Depending on the update, 
-the update will need to be made in .env, settings.py, or other possibly another location.
+## Cloning/Forking ##
+When cloning/forking the project you will likely need to make the updates below.  Depending on the update, 
+the update will need to be made in .env, settings.py, or other location.
 
-1.  Update Django Admin URL (for security) (in settings.py)
+1.  Update Django Admin URL (for security) (in project urls.py)
 2.  Update Time Zone as needed (in settings.py)
-3.  Database settings (in .env)
-4.  Email Settings (in .env)
+3.  Update Database settings (in .env)
+4.  Update Email Settings (in .env)
+5.  Update Allowed Hosts (in settings.py)
 
-When updating Django (Future)
+## Updating Django (Future Topic) ##
+When updating Django...
 - Need to consider added functions and assignments in settings.py
