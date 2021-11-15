@@ -52,6 +52,8 @@ The project has been set up with the following functionality/configuration:
 - Virtual Environment
      - Pipenv
      - Environment variables loaded from .env by Pipenv 
+- Web Server
+     - Gunicorn
 - Misc/Other
      - Time Zone as 'America/New York'
 
