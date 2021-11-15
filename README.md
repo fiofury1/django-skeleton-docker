@@ -20,9 +20,9 @@ The project has been set up with the following functionality/configuration:
      EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend)
      - Settings read from .env  
      - Manually tested with Django development server using SendGrid
-     - Commended out code to send email to console (i.e.  
-     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend')
-     - Test settings (test_settings.py) uses localmem (i.e. 
+     - Includes commended out code to send email to console 
+     (i.e. EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend')
+     - Test settings (in test_settings.py) uses localmem (i.e. 
      EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend')
 - Environment Variables 
      - Uses .env file.  
@@ -34,7 +34,7 @@ The project has been set up with the following functionality/configuration:
      - Only dummy tests included to confirm configuration works.
      - Project level tests to be included in the project level tests folder
      (i.e. '<project_name>/tests/').  
-     - App level tests intended to be saved in app level tests folder.
+     - App level tests intended to be stored in app level tests folder.
      (i.e. '<project_name>/<app_nam>/tests/').  This structure has been implemented in 
      the provided 'main' app.
      - Includes pytest-cov (i.e. "Coverage")
