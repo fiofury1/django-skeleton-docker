@@ -31,6 +31,13 @@ The project has been set up with the following functionality/configuration:
      - Configured for Heroku (with Procfile)
 - 'main' app
      - Can be used or scrapped.
+- Static Files
+     - Configured to use WhiteNoise for both development and production.
+     - During development, configured to look for static files in 'static/' folder in root of project and apps.
+     - Static files collected into 'staticfiles/' folder in project root.
+     - Static files compressed and cached
+       (STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage')
+       *See whitenoise documentation for non-cached option.* 
 - Testing
      - Includes pytest / pytest-django
      - Only dummy tests included to confirm configuration works.
@@ -72,4 +79,4 @@ the update will need to be made in .env, settings.py, or other location.
 
 ## Updating Django (Future Topic) ##
 When updating Django...
-- Need to consider added functions and assignments in settings.py
+- Need to consider added functions, comments, and assignments in settings.py
