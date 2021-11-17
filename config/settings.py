@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
+    #Tells Django to use 'whitenoise' in development rather than Django default.
+    'whitenoise.runserver_nostatic',    
     'django.contrib.staticfiles',
 
     # Third-party apps
