@@ -63,6 +63,10 @@ The project has been set up with the following functionality/configuration:
      - Environment variables loaded from .env by Pipenv 
 - Web Server
      - Gunicorn
+- Other Packages
+     - django-debug-toolbar
+     - django-extensions
+     - isort
 - Misc/Other
      - Time Zone as 'America/New York'
 
