@@ -7,7 +7,7 @@ __pycache__
 #For SQLite files
 *.sqlite3
 #For static files.                                                   
-/static
+staticfiles
 #For pytest
 .pytest_cache
 #For coverage
