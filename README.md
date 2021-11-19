@@ -34,7 +34,8 @@ The project has been set up with the following functionality/configuration:
 - Static Files
      - Configured to use WhiteNoise for both development and production.
      - During development, configured to look for static files in 'static/' folder in root of project and apps.
-     - Static files collected into 'staticfiles/' folder in project root.
+     - Set up to collect static files into 'staticfiles/' folder in project root.
+          - Note that 'staticfiles/' directory not included in source control so 'collect static' command will need to be run to include them in desired environment.
      - Static files compressed and cached
        (STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage')
        *See whitenoise documentation for non-cached option.* 
