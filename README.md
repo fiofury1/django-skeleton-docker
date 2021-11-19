@@ -28,7 +28,7 @@ The project has been set up with the following functionality/configuration:
      - Uses .env file.  
      - Read into Virtual Environment by Pipenv. 
 - Deployment
-     - Configured for Heroku (with Procfile)
+     - Configured for Heroku (with Procfile and runtime.txt)
 - 'main' app
      - Can be used or scrapped.
 - Static Files
