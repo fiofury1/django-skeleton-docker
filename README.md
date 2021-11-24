@@ -72,9 +72,8 @@ The project has been set up with the following functionality/configuration:
      - Time Zone as 'America/New York'
 
 
-## Cloning/Forking ##
-When cloning/forking the project you will likely need to make the updates below.  Depending on the update, 
-the update will need to be made in .env, settings.py, or other location.
+## Forking ##
+When forking the project you will likely need to make the updates below.
 
 1.  Update Django Admin URL (for security) (in project urls.py)
 2.  Update Time Zone as needed (in settings.py)
