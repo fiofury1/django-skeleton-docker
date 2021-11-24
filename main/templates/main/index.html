@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %} Index {% endblock %}
+{% block title %} Site Name {% endblock %}
 
 {% block content %}
-  <h1>Index</h1>
+  <h1>Site Name - UNDER CONSTRUCTION</h1>
   {% if user.is_authenticated %}
-    Hi {{ user.username }}!
+    <p>User: {{ user.username }}</p>
+    <p>Site content here.</p>
     <p><a href="{% url 'logout' %}">Log Out</a></p>
   {% else %}
-    <p>You are not logged in</p>
+    <p>Access Denied.  Please login to view content.</p>
     <p><a href="{% url 'login' %}">Log In</a></p>
     <p><a href="{% url 'signup' %}">Sign Up</a></p>
   {% endif %}
