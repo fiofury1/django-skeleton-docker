@@ -15,5 +15,5 @@ staticfiles
 htmlcov
 #Visual Studio Code Workspace
 *.code-workspace
-#Temporarily ignore Dockefile
+#Temporarily ignore Dockefile.  If Docker is used in the future be sure to un-ignore.
 Dockerfile
