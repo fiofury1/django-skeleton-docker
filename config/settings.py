@@ -52,6 +52,9 @@ DEBUG = bool(int(get_env_variable('DJANGO_DEBUG')))
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dj-skel.herokuapp.com']
 
+INTERNAL_IPS = [
+    '127.0.0.1',    # Added for Django Debug Toolbar
+    ]
 
 # Application definition
 
@@ -207,9 +210,14 @@ EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
 EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
 
 #For security
-SECURE_SSL_REDIRECT=bool(int(get_env_variable('SECURE_SSL_REDIRECT')))
-SECURE_HSTS_SECONDS=int(get_env_variable('SECURE_HSTS_SECONDS'))
-SECURE_HSTS_INCLUDE_SUBDOMAINS=bool(int(get_env_variable('SECURE_HSTS_INCLUDE_SUBDOMAINS')))
-SECURE_HSTS_PRELOAD=bool(int(get_env_variable('SECURE_HSTS_PRELOAD')))
-SESSION_COOKIE_SECURE=bool(int(get_env_variable('SESSION_COOKIE_SECURE')))
-CSRF_COOKIE_SECURE=bool(int(get_env_variable('CSRF_COOKIE_SECURE')))
+SECURE_SSL_REDIRECT = bool(int(get_env_variable('SECURE_SSL_REDIRECT')))
+SECURE_HSTS_SECONDS = int(get_env_variable('SECURE_HSTS_SECONDS'))
+SECURE_HSTS_INCLUDE_SUBDOMAINS = bool(int(get_env_variable('SECURE_HSTS_INCLUDE_SUBDOMAINS')))
+SECURE_HSTS_PRELOAD = bool(int(get_env_variable('SECURE_HSTS_PRELOAD')))
+SESSION_COOKIE_SECURE = bool(int(get_env_variable('SESSION_COOKIE_SECURE')))
+CSRF_COOKIE_SECURE = bool(int(get_env_variable('CSRF_COOKIE_SECURE')))
+
+if DEBUG:
+    # For Django Debug Toolbar
+    INSTALLED_APPS += ['debug_toolbar',]
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware',]

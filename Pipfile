@@ -9,13 +9,13 @@ psycopg2-binary = "*"
 whitenoise = "*"
 gunicorn = "*"
 django-extensions = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 pytest-django = "*"
 pytest-cov = "*"
 selenium = "*"
 isort = "*"
-django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.9"
