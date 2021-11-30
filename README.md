@@ -73,14 +73,16 @@ The project has been set up with the following functionality/configuration:
 
 
 ## Forking ##
-When forking the project you will likely need to make the updates below.
+After forking the project will need to:
 
-1.  Update project level README.md to describe project.
-2.  Update Django Admin URL (for security) (in project urls.py)
-3.  Update Time Zone as needed (in settings.py)
-4.  Update Database settings (in .env)
-5.  Update Email Settings (in .env)
-6.  Update Allowed Hosts (in settings.py)
+1.  Install packages using Pipenv
+2.  Create an .env file in project root (or load environment variables in another way).
+3.  Update project level README.md to describe project.
+4.  Update Django Admin URL (for security) (in project urls.py)
+5.  Update Time Zone as needed (in settings.py)
+6.  Update Database settings (in .env)
+7.  Update Email Settings (in .env)
+8.  Update Allowed Hosts (in settings.py)
 
 ## Updating Django (Future Topic) ##
 When updating Django...
