@@ -2,7 +2,7 @@
 
 A Django project starter template preconfigured with minimal core functionality.
 
-Current Django Version: &nbsp;Django 3.2.8
+Current Django Version: &nbsp;Django 4.0
 
 ### Disclaimer: ###
 This project makes no claim to be the best way to set up a Django project.  It is simply the way that I know how to set things up so the project works.
