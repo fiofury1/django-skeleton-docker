@@ -84,6 +84,10 @@ After forking the project will need to:
 7.  Update Email Settings (in .env)
 8.  Update Allowed Hosts (in settings.py)
 
-## Updating Django (Future Topic) ##
-When updating Django...
-- Need to consider added functions, comments, and assignments in settings.py
+## Updating Django (Section In Progress) ##
+When updating Django... 
+- Update all packages/dependencies.
+     (Hints:  
+     - Use `$ pipenv update --outdated` to see which packages are out of date
+     - Use `$ pipenv update <package_name>` to update a specific package
+- Update 'Current Django Version' in settings.py.
