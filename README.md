@@ -76,6 +76,8 @@ The project has been set up with the following functionality/configuration:
 After forking the project will need to:
 
 1.  Install packages using Pipenv
+     - Use `$ pipenv install` to install dependencies
+     - And `$ pipenv install --dev` to install dev dependencies
 2.  Create an .env file in project root (or load environment variables in another way).
 3.  Update project level README.md to describe project.
 4.  Update Django Admin URL (for security) (in project urls.py)
