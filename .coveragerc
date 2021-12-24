@@ -1,5 +1,6 @@
 [run]
 omit = 
+     accounts/*,
      *apps.py,
      *asgi.py,
       manage.py, 
