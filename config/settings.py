@@ -37,6 +37,9 @@ def string_int_to_int(var):
         return var
 # End 'For Environment Variables'
 
+# Determine environment
+ENV = get_env_variable('ENV')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -111,29 +114,36 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#Database setting for SQLite
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-#Database settings for PostgreSQL
-DATABASES = {
-    'default': {
-        'ENGINE': get_env_variable('DB_ENGINE'),
-        'NAME': get_env_variable('DB_NAME'),
-        'USER': get_env_variable('DB_USER'),
-        'PASSWORD': get_env_variable('DB_PASSWORD'),
-        'HOST': get_env_variable('DB_HOST'),
-        'PORT': string_int_to_int(get_env_variable('DB_PORT')),
+if ENV == 'TEST':
+    DATABASES = {
+        "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ":memory:",                   #OR 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
- }
+else:
+    #Database setting for SQLite
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.sqlite3',
+    #         'NAME': BASE_DIR / 'db.sqlite3',
+    #     }
+    # }
+
+    #Database settings for PostgreSQL
+    DATABASES = {
+        'default': {
+            'ENGINE': get_env_variable('DB_ENGINE'),
+            'NAME': get_env_variable('DB_NAME'),
+            'USER': get_env_variable('DB_USER'),
+            'PASSWORD': get_env_variable('DB_PASSWORD'),
+            'HOST': get_env_variable('DB_HOST'),
+            'PORT': string_int_to_int(get_env_variable('DB_PORT')),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -199,16 +209,19 @@ LOGIN_REDIRECT_URL = 'main:index'
 LOGOUT_REDIRECT_URL = 'main:index'
 
 # Email
-# To Mail to Console
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# To Use SMTP
-EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
-DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
-EMAIL_HOST = get_env_variable('EMAIL_HOST')
-EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
-EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
+if ENV == 'TEST':
+    EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+else:
+    # To Mail to Console
+    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    # To Use SMTP
+    EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
+    DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
+    EMAIL_HOST = get_env_variable('EMAIL_HOST')
+    EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
+    EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
 
 #For security
 SECURE_SSL_REDIRECT = bool(int(get_env_variable('SECURE_SSL_REDIRECT')))
