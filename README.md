@@ -48,6 +48,7 @@ The project has been set up with the following functionality/configuration:
      (i.e. '<project_name>/<app_nam>/tests/').  This structure has been implemented in 
      the provided 'main' app.
      - Includes pytest-cov (i.e. "Coverage")
+     - Uses pytest-dotenv to read environment variables for testing.
      - Includes Selenium, but does not include a Web Driver.  You will need to install this into your environment.
 - User Management
      - Implemented using Django included 'auth' app.
