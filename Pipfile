@@ -10,6 +10,7 @@ whitenoise = "*"
 gunicorn = "*"
 django-extensions = "*"
 django-debug-toolbar = "*"
+pytest-dotenv = "*"
 
 [dev-packages]
 pytest-django = "*"
