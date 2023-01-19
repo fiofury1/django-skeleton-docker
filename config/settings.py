@@ -208,28 +208,28 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'main:index'
 LOGOUT_REDIRECT_URL = 'main:index'
 
-# Email
-if ENV == 'TEST':
-    EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
-else:
-    # To Mail to Console
-    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    # To Use SMTP
-    EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
-    DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
-    EMAIL_HOST = get_env_variable('EMAIL_HOST')
-    EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
-    EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
+# # Email
+# if ENV == 'TEST':
+#     EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+# else:
+#     # To Mail to Console
+#     # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#     # To Use SMTP
+#     EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
+#     DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
+#     EMAIL_HOST = get_env_variable('EMAIL_HOST')
+#     EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
+#     EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
+#     EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
+#     EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
 
-#For security
-SECURE_SSL_REDIRECT = bool(int(get_env_variable('SECURE_SSL_REDIRECT')))
-SECURE_HSTS_SECONDS = int(get_env_variable('SECURE_HSTS_SECONDS'))
-SECURE_HSTS_INCLUDE_SUBDOMAINS = bool(int(get_env_variable('SECURE_HSTS_INCLUDE_SUBDOMAINS')))
-SECURE_HSTS_PRELOAD = bool(int(get_env_variable('SECURE_HSTS_PRELOAD')))
-SESSION_COOKIE_SECURE = bool(int(get_env_variable('SESSION_COOKIE_SECURE')))
-CSRF_COOKIE_SECURE = bool(int(get_env_variable('CSRF_COOKIE_SECURE')))
+# #For security
+# SECURE_SSL_REDIRECT = bool(int(get_env_variable('SECURE_SSL_REDIRECT')))
+# SECURE_HSTS_SECONDS = int(get_env_variable('SECURE_HSTS_SECONDS'))
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = bool(int(get_env_variable('SECURE_HSTS_INCLUDE_SUBDOMAINS')))
+# SECURE_HSTS_PRELOAD = bool(int(get_env_variable('SECURE_HSTS_PRELOAD')))
+# SESSION_COOKIE_SECURE = bool(int(get_env_variable('SESSION_COOKIE_SECURE')))
+# CSRF_COOKIE_SECURE = bool(int(get_env_variable('CSRF_COOKIE_SECURE')))
 
 if DEBUG:
     # For Django Debug Toolbar
