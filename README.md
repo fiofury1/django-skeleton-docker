@@ -1,11 +1,11 @@
 # Django-Skeleton #
 
-A Django project starter template preconfigured with minimal core functionality.
+A Django project starter template preconfigured with bare bones functionality.
 
 Current Django Version: &nbsp;Django 4.0
 
-### Disclaimer: ###
-This project makes no claim to be the best way to set up a Django project.  It is simply the way that I know how to set things up so the project works.
+### Disclaimers: ###
+This project makes no claim to be the "best way" to set up a Django project.
 
 ## Functionality & Configuration ##
 The project has been set up with the following functionality/configuration:
