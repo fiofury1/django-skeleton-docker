@@ -73,19 +73,22 @@ The project has been set up with the following functionality/configuration:
      - Time Zone as 'America/New York'
 
 
-## Forking ##
-After forking the project will need to:
+## Forking or Cloning ##
+After forking or cloning the project, you will need to:
 
-1.  Install packages using Pipenv
-     - Use `$ pipenv install` to install dependencies
+1.  Create a new virtual environment using Pipenv.  This should be done from the root folder of the project.  
+    You can do this with `$ pipenv install` or skip to the next step whereby running the `install` command will create the virtual environment and install dependencies in a single step. 
+2.  Install packages using Pipenv.  This should be done from the root of the project.
+     - Use `$ pipenv install` to install dependencies.  This will also create a new virtual environment.
      - And `$ pipenv install --dev` to install dev dependencies
-2.  Create an .env file in project root (or load environment variables in another way).
-3.  Update project level README.md to describe project.
-4.  Update Django Admin URL (for security) (in project urls.py)
-5.  Update Time Zone as needed (in settings.py)
-6.  Update Database settings (in .env)
-7.  Update Email Settings (in .env)
-8.  Update Allowed Hosts (in settings.py)
+3.  Set up PostgreSQL user and local Postgres database.
+4.  Create an .env file in project root (or load environment variables in another way).
+5.  Update Database settings (in .env)
+6.  Update project level README.md to describe project.
+7.  Update Django Admin URL (for security) (in project urls.py)
+8.  Update Time Zone as needed (in settings.py)
+9.  Update Email Settings (in .env)
+10.  Update Allowed Hosts (in settings.py)
 
 ## Updating Django (Section In Progress) ##
 When updating Django... 
@@ -93,4 +96,4 @@ When updating Django...
      (Hints:  
      - Use `$ pipenv update --outdated` to see which packages are out of date
      - Use `$ pipenv update <package_name>` to update a specific package
-- Update 'Current Django Version' in settings.py.
+- Update 'Current Django Version' in settings.py
