@@ -80,8 +80,9 @@ After forking or cloning the project, you will need to:
      - This should be done from the root folder of the project.  
      - The Python version used for your virtual environment needs to match the version in the Pipfile.
      - The `install` command will both create the virtual environment and install your dependencies.
-     - Use `$ pipenv install` to install dependencies.  
-     - And `$ pipenv install --dev` to install dev dependencies
+          - **WARNING:**  Using `pipenv install` will install dependencies ***from the Pipfile***.  The Pipfile in this project does not currently specify versions of packages.  To create a deterministic build of the project, then use `pipenv sync` instead.  This will result in packages being installed as specified in the Pipfile.lock file.
+          - Use `$ pipenv install` to install non-dev dependencies.  
+          - Use `$ pipenv install --dev` to install all dependencies including dev dependencies. 
 3.  Set up PostgreSQL user and local Postgres database.
 4.  Create an .env file in project root (or load environment variables in another way).
 5.  Update Database settings (in .env)
