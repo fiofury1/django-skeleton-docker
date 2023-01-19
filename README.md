@@ -76,10 +76,11 @@ The project has been set up with the following functionality/configuration:
 ## Forking or Cloning ##
 After forking or cloning the project, you will need to:
 
-1.  Create a new virtual environment using Pipenv.  This should be done from the root folder of the project.  
-    You can do this with `$ pipenv install` or skip to the next step whereby running the `install` command will create the virtual environment and install dependencies in a single step. 
-2.  Install packages using Pipenv.  This should be done from the root of the project.
-     - Use `$ pipenv install` to install dependencies.  This will also create a new virtual environment.
+1.  Create a new virtual environment and install dependencies using Pipenv.  
+     - This should be done from the root folder of the project.  
+     - The Python version used for your virtual environment needs to match the version in the Pipfile.
+     - The `install` command will both create the virtual environment and install your dependencies.
+     - Use `$ pipenv install` to install dependencies.  
      - And `$ pipenv install --dev` to install dev dependencies
 3.  Set up PostgreSQL user and local Postgres database.
 4.  Create an .env file in project root (or load environment variables in another way).
