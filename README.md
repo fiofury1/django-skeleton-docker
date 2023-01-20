@@ -9,11 +9,10 @@ This project makes no claim to be the "best way" to set up a Django project.
 
 ## Functionality & Configuration ##
 The project has been set up with the following functionality/configuration:
-- CustomUser Model
-     - Set up in 'accounts' app
-     - Extends 'AbstractUser' with no additional fields added.
 - Database
      - Includes psycopg2 to run PostgreSQL
+- Deployment
+     - Configured for Heroku (with Procfile and runtime.txt)
 - Docker - Not currently set up for Docker
 - Email
      - Configured for SMTP (i.e. 
@@ -27,8 +26,6 @@ The project has been set up with the following functionality/configuration:
 - Environment Variables 
      - Uses .env file.  
      - Read into Virtual Environment by Pipenv. 
-- Deployment
-     - Configured for Heroku (with Procfile and runtime.txt)
 - 'main' app
      - Can be used or scrapped.
 - Static Files
@@ -51,6 +48,9 @@ The project has been set up with the following functionality/configuration:
      - Uses pytest-dotenv to read environment variables for testing.
      - Includes Selenium, but does not include a Web Driver.  You will need to install this into your environment.
 - User Management
+     - CustomUser Model
+          - Set up in 'accounts' app
+          - Extends 'AbstractUser' with no additional fields added.
      - Implemented using Django included 'auth' app.
      - URLs/Views not included by 'auth' (i.e. Sign-up) included in 'accounts/' app.
      - Functionality implemented:
@@ -80,7 +80,7 @@ After forking or cloning the project, you will need to:
      - This should be done from the root folder of the project.  
      - The Python version used for your virtual environment needs to match the version in the Pipfile.
      - The `install` command will both create the virtual environment and install your dependencies.
-          - **WARNING:**  Using `pipenv install` will install dependencies ***from the Pipfile***.  The Pipfile in this project does not currently specify versions of packages.  To create a deterministic build of the project, then use `pipenv sync` instead.  This will result in packages being installed as specified in the Pipfile.lock file.
+          - **WARNING:**  Using `pipenv install` will install dependencies ***from the Pipfile***.  The Pipfile in this project does not currently specify versions of packages, which means the latest version will be installed.  To create a deterministic build of the project, then use `pipenv sync` instead.  This will result in packages being installed as specified in the Pipfile.lock file.
           - Use `$ pipenv install` to install non-dev dependencies.  
           - Use `$ pipenv install --dev` to install all dependencies including dev dependencies. 
 3.  Set up PostgreSQL user and local Postgres database.
