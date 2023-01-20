@@ -85,12 +85,14 @@ After forking or cloning the project, you will need to:
           - Use `$ pipenv install --dev` to install all dependencies including dev dependencies. 
 3.  Set up PostgreSQL user and local Postgres database.
 4.  Create an .env file in project root (or load environment variables in another way).
-5.  Update Database settings (in .env)
-6.  Update project level README.md to describe project.
-7.  Update Django Admin URL (for security) (in project urls.py)
-8.  Update Time Zone as needed (in settings.py)
-9.  Update Email Settings (in .env)
-10.  Update Allowed Hosts (in settings.py)
+5.  Update Database settings (in .env).
+6.  Update Django Admin URL (for security) (in project urls.py).
+7.  Update Time Zone as needed (in settings.py).
+8.  Update Email Settings (in .env).
+9.  Update Allowed Hosts (in settings.py).
+10.  Customize:
+     - Project level README.md to describe project.
+     - Home Page Title and Heading.  Obviously, also delete the header about Django-Skeleton.
 
 ## Updating Django (Section In Progress) ##
 When updating Django... 
