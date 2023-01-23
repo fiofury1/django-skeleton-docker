@@ -1,6 +1,6 @@
 # Django-Skeleton #
 
-A Django project starter template preconfigured with bare bones functionality.
+A Django project starter template intentionally preconfigured with "bare bones" functionality.
 
 Current Django Version: &nbsp;Django 4.1.5
 
