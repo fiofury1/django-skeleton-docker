@@ -25,6 +25,7 @@ The project has been set up with the following functionality/configuration:
      EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend')
 - Environment Variables 
      - Uses .env file.  
+     - See included EXAMPLE.env for example .env file
      - Read into Virtual Environment by Pipenv. 
 - 'main' app
      - Can be used or scrapped.
