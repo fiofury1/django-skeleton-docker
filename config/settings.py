@@ -54,7 +54,7 @@ SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(get_env_variable('DJANGO_DEBUG')))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dj-skel.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 
 INTERNAL_IPS = [
     '127.0.0.1',    # Added for Django Debug Toolbar
