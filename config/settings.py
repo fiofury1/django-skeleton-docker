@@ -208,7 +208,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'main:home'
 LOGOUT_REDIRECT_URL = 'main:home'
 
-# # Email
+# # Email - Uncomment/refactor as necessary to support email needs.
 # if ENV == 'TEST':
 #     EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 # else:

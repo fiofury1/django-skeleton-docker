@@ -14,7 +14,8 @@ The project has been set up with the following functionality/configuration:
 - Deployment
      - Configured for Heroku (with Procfile and runtime.txt)
 - Docker - Not currently set up for Docker
-- Email
+- Email - Working as per below, but commented out in code to allow user to get project up and running without email and then configure email later.
+     - When configuring, need to update/uncomment .env and settings.py.
      - Configured for SMTP (i.e. 
      EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend)
      - Settings read from .env  
