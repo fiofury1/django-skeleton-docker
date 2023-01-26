@@ -25,10 +25,14 @@ The project has been set up with the following functionality/configuration:
      (i.e. EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend')
      - Test settings (in test_settings.py) uses localmem (i.e. 
      EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend')
-- Environment Variables 
-     - Uses .env file.  
-     - See included EXAMPLE.env for example .env file
-     - Read into Virtual Environment by Pipenv. 
+- Environments / Environment Variables 
+     - Separate environments for local development (DEV), test (TEST), and production (PROD)
+     - Variable named 'DEV' assigned in environment specifies the environment.  Possible values:  DEV, TEST, PROD
+     - Where are variables stored?
+          - DEV:    .env file (not included).  Variables read into environment by Pipenv.
+          - TEST:   .env-test file (not included).  Variables read into environment by pytest-dotenv.
+          - PROD:   Configured through Heroku settings.  Variables read into environment by Heroku.  
+     - See included EXAMPLE.env for example .env file. 
 - Front End Frameworks:
      - CSS:  None
      - JavaScript:  None
