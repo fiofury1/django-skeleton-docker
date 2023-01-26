@@ -29,6 +29,9 @@ The project has been set up with the following functionality/configuration:
      - Uses .env file.  
      - See included EXAMPLE.env for example .env file
      - Read into Virtual Environment by Pipenv. 
+- Front End Frameworks:
+     - CSS:  None
+     - JavaScript:  None
 - 'main' app
      - Can be used or scrapped.
 - Static Files
