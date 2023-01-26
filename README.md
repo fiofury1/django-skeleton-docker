@@ -10,7 +10,8 @@ This project makes no claim to be the "best way" to set up a Django project.
 ## Functionality & Configuration ##
 The project has been set up with the following functionality/configuration:
 - Database
-     - Includes psycopg2 to run PostgreSQL
+     - Datebase:  PostgreSQL
+     - Database Adapter/Connector:  psycopg2
 - Deployment
      - Configured for Heroku (with Procfile and runtime.txt)
 - Docker - Not currently set up for Docker
