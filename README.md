@@ -71,7 +71,8 @@ The project has been set up with the following functionality/configuration:
      - Pipenv
      - Environment variables loaded from .env by Pipenv 
 - Web Server
-     - Gunicorn
+     - Django Dev Server used by default for DEV and TEST.
+     - Gunicorn for PROD.
 - Other Packages
      - django-debug-toolbar
      - django-extensions
