@@ -15,16 +15,13 @@ The project has been set up with the following functionality/configuration:
 - Deployment
      - Configured for Heroku (with Procfile and runtime.txt)
 - Docker - Not currently set up for Docker
-- Email - Working as per below, but commented out in code to allow user to get project up and running without email and then configure email later.
-     - When configuring, need to update/uncomment .env and settings.py.
-     - Configured for SMTP (i.e. 
-     EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend)
-     - Settings read from .env  
-     - Manually tested with Django development server using SendGrid
-     - Includes commended out code to send email to console 
-     (i.e. EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend')
-     - Test settings (in test_settings.py) uses localmem (i.e. 
-     EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend')
+- Email
+     - Configured by environment as follows:
+          - DEV:  To console (EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend')
+          - TEST:  To localmem (EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend')
+          - PROD: SMTP (EMAIL_BACKEND = django.core.mail.backends.smtp.EmailBackend)  
+     - Specific values for settings read from environment.
+     - Alternate configurations commented out in code for quick changes while debugging.  
 - Environments / Environment Variables 
      - Separate environments for local development (DEV), test (TEST), and production (PROD)
      - Variable named 'DEV' assigned in environment specifies the environment.  Possible values:  DEV, TEST, PROD
