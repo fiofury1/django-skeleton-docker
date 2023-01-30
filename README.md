@@ -9,6 +9,10 @@ This project makes no claim to be the "best way" to set up a Django project.
 
 ## Functionality & Configuration ##
 The project has been set up with the following functionality/configuration:
+- Code Formatting (installed with Pipenv as 'dev-packages')
+     - Python
+          - black
+          - isort
 - Database
      - Datebase:  PostgreSQL
      - Database Adapter/Connector:  psycopg2
@@ -76,7 +80,6 @@ The project has been set up with the following functionality/configuration:
 - Other Packages
      - django-debug-toolbar
      - django-extensions
-     - isort
 - Misc/Other
      - Time Zone as 'America/New York'
 
