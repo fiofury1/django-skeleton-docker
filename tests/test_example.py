@@ -1,7 +1,7 @@
 ### tests/test_example.py ###
 
 # File included to prove test setup. 
-# Replace with project level testing.
+# Feel free to delete or replace with project level testing.
 
 import pytest
 

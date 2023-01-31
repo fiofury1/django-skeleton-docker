@@ -1,8 +1,6 @@
 ### main/tests/test_example.py ###
 
-# File included to prove test setup.  
-# Recommend replacing this file with dedicated test files by view, url, models, etc. 
-# (i.e. test_views.py, test_urls.py, test_models.py, test_templates, etc. ) 
+# File included to prove test setup.  Feel free to delete after getting up and running.  
 
 import pytest
 
