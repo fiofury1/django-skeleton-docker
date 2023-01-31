@@ -9,10 +9,10 @@ This project makes no claim to be the "best way" to set up a Django project.
 
 ## Functionality & Configuration ##
 The project has been set up with the following functionality/configuration:
-- Code Formatting (installed with Pipenv as 'dev-packages')
+- Code Formatting
      - Python
-          - black
-          - isort
+          - black (installed as a 'dev-packages')
+          - isort (installed as a 'dev-packages')
 - Database
      - Datebase:  PostgreSQL
      - Database Adapter/Connector:  psycopg2
