@@ -58,6 +58,7 @@ The project has been set up with the following functionality/configuration:
      - Includes pytest-cov (i.e. "Coverage")
      - Uses pytest-dotenv to read environment variables for testing.
      - Includes Selenium, but does not include a Web Driver.  You will need to install this into your environment.
+     - Includes mixer for generating test data.
 - User Management
      - CustomUser Model
           - Set up in 'accounts' app
