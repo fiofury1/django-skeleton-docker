@@ -48,17 +48,23 @@ The project has been set up with the following functionality/configuration:
        (STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage')
        *See whitenoise documentation for non-cached option.* 
 - Testing
-     - Includes pytest / pytest-django
-     - Only dummy tests included to confirm configuration works.
-     - Project level tests to be included in the project level tests folder
-     (i.e. '<project_name>/tests/').  
-     - App level tests intended to be stored in app level tests folder.
-     (i.e. '<project_name>/<app_nam>/tests/').  This structure has been implemented in 
-     the provided 'main' app.
-     - Includes pytest-cov (i.e. "Coverage")
-     - Uses pytest-dotenv to read environment variables for testing.
-     - Includes Selenium, but does not include a Web Driver.  You will need to install this into your environment.
-     - Includes mixer for generating test data.
+     - Uses pytest / pytest-django packages.
+          - pytest settings found in pytest.ini.
+          - Uses conftest.py files to define test data/fixtures.
+               - Fitures included:  browser, authenticated_browser, authenticated_user
+          - Uses 'mixer' (package) for generating test data.
+     - Uses pytest-dotenv to read environment variables into TEST environment.
+     - Uses Selenium and ChromeDriver for functional/integration testing.  
+          - Does not include a ChromeDriver in source code.  You will need to install ChromeDriver into your environment(s).
+     - Includes pytest-cov (i.e. "Coverage") 
+     - Test file/folder structure
+          - Project level tests to be included in the project level 'tests' folder
+          (i.e. '<project_name>/tests/').  
+               - Includes example test file and template for functional tests. 
+          - App level tests intended to be stored in app level 'tests' folder.
+          (i.e. '<project_name>/<app_nam>/tests/').  This structure has been implemented in the provided 'main' app.
+               - Includes example test file, working functional tests file, and template files for testing models, templates, urls, and views.
+     - All testing packages included in Pipenv [dev-packages]
 - User Management
      - CustomUser Model
           - Set up in 'accounts' app
