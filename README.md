@@ -79,6 +79,7 @@ The project has been set up with the following functionality/configuration:
           - Password Reset (with confirm email)
           - Password Change
      - HTML and email templates added to project level 'templates/registration/' folder.
+     - **WARNING:** User management setup is not included in automated test suite.  Testing is under development and will be released soon.
 - Virtual Environment
      - Pipenv
      - Environment variables loaded from .env by Pipenv 
