@@ -10,7 +10,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
-### Test of django-skeleton's generic home page. ###
+### Test Home Page ###
 #   
 # The home page is meant to be customized for the website being build with django-skeleton.
 # As a result, the tests below should be updated when the content of the home page is modified.
@@ -47,7 +47,7 @@ def test_home_page_for_unauthenticated_user(browser, live_server):
 
 # Test home page for Authenticated User  
 @pytest.mark.django_db
-def test_home_page_for_authenticated_user(authenticated_browser, live_server):
+def test_home_page_for_authenticated_user(authenticated_browser, authenticated_user, live_server):
     # Setup
     url = live_server.url + reverse('main:home')
     browser = authenticated_browser
@@ -56,7 +56,10 @@ def test_home_page_for_authenticated_user(authenticated_browser, live_server):
     assert browser.title == "Site Name", "Home page title should be 'SITE NAME'."
     # Test url
     assert browser.current_url == live_server.url+'/', "Home page url should be [live server url]+'/'."
-    # Test page shows current user - test in test_templates.py
+    # Test page shows current user
+    page_source = browser.page_source
+    assert "User" in page_source, "'User:' should be in page source."
+    assert authenticated_user.username in page_source, "'authenticated_user.username' should be in page source."
     # Test Log Out Link
     try:
         link = browser.find_element(By.LINK_TEXT, "Log Out")
@@ -64,4 +67,8 @@ def test_home_page_for_authenticated_user(authenticated_browser, live_server):
         assert False, "Home page should include 'Log Out' link for authenticated user."
     link.click()
     assert browser.title == "Site Name", "Home page title should still be 'SITE NAME'."
-    # # Test GitHub repo link - Intentionally ignored
+    # Test GitHub repo link - Intentionally ignored
+### End Test Home Page ###    
+    
+# FOR DEVELOPMENT
+# time.sleep(5)
