@@ -1,4 +1,4 @@
-# Django-Skeleton #
+# Django-Skeleton - BETA - UNDER DEVELOPMENT #
 
 A Django project starter template intentionally preconfigured with "bare bones" functionality.
 
@@ -11,8 +11,9 @@ This project makes no claim to be the "best way" to set up a Django project.
 The project has been set up with the following functionality/configuration:
 - Code Formatting
      - Python
-          - black (installed as a 'dev-packages')
-          - isort (installed as a 'dev-packages')
+          - black
+          - isort
+     - All code formatting packages installed as Pipenv [dev-packages]
 - Database
      - Datebase:  PostgreSQL
      - Database Adapter/Connector:  psycopg2
@@ -64,7 +65,7 @@ The project has been set up with the following functionality/configuration:
           - App level tests intended to be stored in app level 'tests' folder.
           (i.e. '<project_name>/<app_nam>/tests/').  This structure has been implemented in the provided 'main' app.
                - Includes example test file, working functional tests file, and template files for testing models, templates, urls, and views.
-     - All testing packages included in Pipenv [dev-packages]
+     - All testing packages installed as Pipenv [dev-packages]
 - User Management
      - CustomUser Model
           - Set up in 'accounts' app
