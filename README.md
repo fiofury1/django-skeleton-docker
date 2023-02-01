@@ -82,7 +82,7 @@ The project has been set up with the following functionality/configuration:
      - **WARNING:** User management setup is not included in automated test suite.  Testing is under development and will be released soon.
 - Virtual Environment
      - Pipenv
-     - Environment variables loaded from .env by Pipenv 
+     - Environment variables loaded from .env by Pipenv in DEV. 
 - Web Server
      - Django Dev Server used by default for DEV and TEST.
      - Gunicorn for PROD.

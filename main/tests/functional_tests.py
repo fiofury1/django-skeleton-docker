@@ -43,7 +43,7 @@ def test_home_page_for_unauthenticated_user(browser, live_server):
     link.click()
     assert browser.title == "Sign Up", "Sign Up link should lead to Sign Up Page'."
     browser.back()
-    # Test GitHub repo link - Intentionally ignored
+    # Test GitHub repo link - Intentionally not tested as the section with be deleted in new project.
 
 # Test home page for Authenticated User  
 @pytest.mark.django_db
