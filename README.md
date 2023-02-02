@@ -40,6 +40,8 @@ The project has been set up with the following functionality/configuration:
      - JavaScript:  None
 - 'main' app
      - Can be used or scrapped.
+- Source Control
+     - Git (includes .gitignore)
 - Static Files
      - Configured to use WhiteNoise for both development and production.
      - During development, configured to look for static files in 'static/' folder in root of project and apps.
@@ -57,7 +59,7 @@ The project has been set up with the following functionality/configuration:
      - Uses pytest-dotenv to read environment variables into TEST environment.
      - Uses Selenium and ChromeDriver for functional/integration testing.  
           - Does not include a ChromeDriver in source code.  You will need to install ChromeDriver into your environment(s).
-     - Includes pytest-cov (i.e. "Coverage") 
+     - Includes pytest-cov (i.e. "Coverage").  Provided .coveragerc file includes files/folders to ignore from coverage report.  
      - Test file/folder structure
           - Project level tests to be included in the project level 'tests' folder
           (i.e. '<project_name>/tests/').  
