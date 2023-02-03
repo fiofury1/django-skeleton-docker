@@ -9,3 +9,6 @@ def test_browser(browser):
     browser.get('http://www.google.com/');
     # time.sleep(5) 
     assert True
+
+# SNIPPETS FOR DEVELOPMENT
+# time.sleep(5)

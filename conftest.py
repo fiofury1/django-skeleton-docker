@@ -12,15 +12,15 @@ from accounts.models import CustomUser
 def browser():
     """Return a browser instance"""
     # For Browser
-    # browser = webdriver.Chrome()
+    browser = webdriver.Chrome()
     # For 'Headless' Browser
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    browser = webdriver.Chrome(options=options)
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # browser = webdriver.Chrome(options=options)
     yield browser
     browser.quit()
 
-@pytest.fixture()
+@pytest.fixture
 def authenticated_browser(authenticated_user, browser, client, live_server):
     """Return a browser instance with logged-in user session."""
     sessionid = client.cookies['sessionid']
@@ -34,7 +34,18 @@ def authenticated_browser(authenticated_user, browser, client, live_server):
 TESTUSER_USERNAME = 'test_user'
 TESTUSER_PASSWORD = 'my_password123'
 
-@ pytest.fixture
+@pytest.fixture
+def test_user_password():
+    return TESTUSER_PASSWORD
+
+@pytest.fixture
+def test_user():
+    user = mixer.blend(CustomUser, username=TESTUSER_USERNAME)
+    user.set_password(TESTUSER_PASSWORD)
+    user.save()
+    return user
+
+@pytest.fixture
 def authenticated_user(client):
     user = mixer.blend(CustomUser, username=TESTUSER_USERNAME)
     user.set_password(TESTUSER_PASSWORD)

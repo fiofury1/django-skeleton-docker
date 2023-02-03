@@ -29,10 +29,10 @@ def test_home_page_for_unauthenticated_user(browser, live_server):
     try:
         link = browser.find_element(By.LINK_TEXT, "Log In")
     except NoSuchElementException:
-        assert False, "Home page should include 'Log in' link for unauthenticated user."
+        assert False, "Home page should include 'Log In' link for unauthenticated user."
     
     link.click()
-    assert browser.title == "Log In", "Log In link should lead to Log In Page'."
+    assert browser.title == "Log In", "'Log In' link should lead to Log In Page'."
     browser.back()
     # Test Sign up link
     try:
@@ -66,9 +66,9 @@ def test_home_page_for_authenticated_user(authenticated_browser, authenticated_u
     except NoSuchElementException:
         assert False, "Home page should include 'Log Out' link for authenticated user."
     link.click()
-    assert browser.title == "Site Name", "Home page title should still be 'SITE NAME'."
+    assert browser.title == "Site Name", "Broswer title should be 'SITE NAME' upon logout."
     # Test GitHub repo link - Intentionally ignored
 ### End Test Home Page ###    
     
-# FOR DEVELOPMENT
+# SNIPPETS FOR DEVELOPMENT
 # time.sleep(5)
