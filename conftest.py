@@ -12,11 +12,11 @@ from accounts.models import CustomUser
 def browser():
     """Return a browser instance"""
     # For Browser
-    browser = webdriver.Chrome()
+    # browser = webdriver.Chrome()
     # For 'Headless' Browser
-    # options = webdriver.ChromeOptions()
-    # options.add_argument('headless')
-    # browser = webdriver.Chrome(options=options)
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    browser = webdriver.Chrome(options=options)
     yield browser
     browser.quit()
 
