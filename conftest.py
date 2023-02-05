@@ -35,6 +35,10 @@ TESTUSER_USERNAME = 'test_user'
 TESTUSER_PASSWORD = 'my_password123'
 
 @pytest.fixture
+def test_user_username():
+    return TESTUSER_USERNAME
+
+@pytest.fixture
 def test_user_password():
     return TESTUSER_PASSWORD
 

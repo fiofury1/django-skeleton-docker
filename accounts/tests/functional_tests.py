@@ -125,6 +125,52 @@ def test_signup(browser, live_server):
         "User" in browser.page_source
     ), "Page source incorrect.  Succesful login should redirect to home page with 'User:' displayed."
 
+# Test Password Change
+@pytest.mark.django_db
+def test_password_change(authenticated_browser, live_server, test_user_username, test_user_password):
+    # Setup
+    url = live_server.url + reverse("password_change")
+    browser = authenticated_browser
+    browser.get(url)
+    # Test page title
+    assert browser.title == "Password Change", "Title of 'Password Change' page should be 'Password Change'."
+    # # Test url
+    assert (
+        browser.current_url == live_server.url + "/accounts/password_change/"
+    ), "'Password Change' page url should be [live server url]+'/accounts/password_change/'."
+    # Test Password Change form.  Ignore validation as 'partially' covered by Django.  One blind spot is display of validation messages.
+    OLD_PASSWORD = test_user_password
+    NEW_PASSWORD1 = "my_new_password123"
+    NEW_PASSWORD2 = "my_new_password123"
+    old_password_field = browser.find_element(By.NAME, "old_password")
+    new_password1_field = browser.find_element(By.NAME, "new_password1")
+    new_password2_field = browser.find_element(By.NAME, "new_password2")
+    old_password_field.send_keys(OLD_PASSWORD)
+    new_password1_field.send_keys(NEW_PASSWORD1)
+    new_password2_field.send_keys(NEW_PASSWORD2)
+    try:
+        submit_button = browser.find_element(By.XPATH, '//input[@value="Change my password"]')
+    except NoSuchElementException:
+        assert False, "Password Change page should have 'Change my password' submit button."
+    submit_button.click()
+    assert (
+        browser.title == "Password Change Successful"
+    ), "Successful password change should redirect to 'Password Change Successful' page"
+
+    # Test user can now log in with change password
+    browser.get(live_server.url + reverse("login"))
+    username_field = browser.find_element(By.NAME, "username")
+    password_field = browser.find_element(By.NAME, "password")
+    username_field.send_keys(test_user_username)
+    password_field.send_keys(NEW_PASSWORD1)
+    submit_button = browser.find_element(By.XPATH, '//button[text()="Log In"]')
+    submit_button.click()
+    assert (
+        browser.title == "Site Name"
+    ), "Page title incorrect.  Successful login should redirect to home page'."
+    assert (
+        "User" in browser.page_source
+    ), "Page source incorrect.  Succesful login should redirect to home page with 'User:' displayed."
 
 # SNIPPETS FOR DEVELOPMENT
 # time.sleep(5)
