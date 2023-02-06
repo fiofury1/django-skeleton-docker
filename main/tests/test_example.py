@@ -1,8 +1,9 @@
-### main/tests/test_example.py ###
+# main/tests/test_example.py
 
-# File included to prove test setup.  Feel free to delete after getting up and running.  
+# File included to prove test setup.  Feel free to delete after getting up and running.
 
 import pytest
+
 
 def test_example():
     assert 1 == 1

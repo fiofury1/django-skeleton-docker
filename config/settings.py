@@ -20,13 +20,15 @@ import os
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
 
+
 def get_env_variable(var_name):
     """Get the environment variable or return exception."""
     try:
         return os.environ[var_name]
     except KeyError:
-        error_msg = f'Set the {var_name} environment variable'
+        error_msg = f"Set the {var_name} environment variable"
         raise ImproperlyConfigured(error_msg)
+
 
 # --- End Snip ---
 def string_int_to_int(var):
@@ -35,10 +37,12 @@ def string_int_to_int(var):
         return int(var)
     except ValueError:
         return var
+
+
 # End 'For Environment Variables'
 
 # Determine environment
-ENV = get_env_variable('ENV')
+ENV = get_env_variable("ENV")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,84 +52,83 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY')
+SECRET_KEY = get_env_variable("DJANGO_SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(get_env_variable('DJANGO_DEBUG')))
+DEBUG = bool(int(get_env_variable("DJANGO_DEBUG")))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".herokuapp.com"]
 
 INTERNAL_IPS = [
-    '127.0.0.1',    # Added for Django Debug Toolbar
-    ]
+    "127.0.0.1",  # Added for Django Debug Toolbar
+]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    #Tells Django to use 'whitenoise' in development rather than Django default.
-    'whitenoise.runserver_nostatic',    
-    'django.contrib.staticfiles',
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    # Tells Django to use 'whitenoise' in development rather than Django default.
+    "whitenoise.runserver_nostatic",
+    "django.contrib.staticfiles",
     # Third-party apps
-    'django_extensions',
-
+    "django_extensions",
     # Local apps
-    'accounts',
-    'main',
-
+    "accounts",
+    "main",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', 
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'config.urls'
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #Tells Django where to find templates outside of apps.
-        'DIRS': [BASE_DIR / 'templates',],
-        #Tells Django to serch for templates in apps.
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        # Tells Django where to find templates outside of apps.
+        "DIRS": [
+            BASE_DIR / "templates",
+        ],
+        # Tells Django to serch for templates in apps.
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if ENV == 'TEST':
+if ENV == "TEST":
     DATABASES = {
         "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ":memory:",                   #OR 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": ":memory:",  # OR 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 else:
-    #Database setting for SQLite
+    # Database setting for SQLite
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.sqlite3',
@@ -133,15 +136,15 @@ else:
     #     }
     # }
 
-    #Database settings for PostgreSQL
+    # Database settings for PostgreSQL
     DATABASES = {
-        'default': {
-            'ENGINE': get_env_variable('DB_ENGINE'),
-            'NAME': get_env_variable('DB_NAME'),
-            'USER': get_env_variable('DB_USER'),
-            'PASSWORD': get_env_variable('DB_PASSWORD'),
-            'HOST': get_env_variable('DB_HOST'),
-            'PORT': string_int_to_int(get_env_variable('DB_PORT')),
+        "default": {
+            "ENGINE": get_env_variable("DB_ENGINE"),
+            "NAME": get_env_variable("DB_NAME"),
+            "USER": get_env_variable("DB_USER"),
+            "PASSWORD": get_env_variable("DB_PASSWORD"),
+            "HOST": get_env_variable("DB_HOST"),
+            "PORT": string_int_to_int(get_env_variable("DB_PORT")),
         }
     }
 
@@ -150,16 +153,16 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -167,9 +170,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = "America/New_York"
 
 USE_I18N = True
 
@@ -181,39 +184,39 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # Tells Django where to check for static files other than apps in development.
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / "static",
 ]
 
 # Tells Django where to store static files collected using 'manage.py collectstatic' command
-# Location of static files during production. 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Location of static files during production.
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-#Specifies the 'file collection engine' used by collectstatic.
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
+# Specifies the 'file collection engine' used by collectstatic.
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Tells Django to use custom user model we defined in 'accounts' app
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Tells where to redirect upon login and logout
-LOGIN_REDIRECT_URL = 'main:home'
-LOGOUT_REDIRECT_URL = 'main:home'
+LOGIN_REDIRECT_URL = "main:home"
+LOGOUT_REDIRECT_URL = "main:home"
 
 # Email - Uncomment/refactor as necessary to support email needs.
-if ENV == 'TEST':
-    EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
-elif ENV == 'DEV':
+if ENV == "TEST":
+    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+elif ENV == "DEV":
     # To Mail to Console
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     # To Use SMTP
     # EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
     # DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
@@ -226,26 +229,32 @@ else:
     # To Mail to Console
     # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     # To Use SMTP
-    EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
-    DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
-    EMAIL_HOST = get_env_variable('EMAIL_HOST')
-    EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = string_int_to_int(get_env_variable('EMAIL_PORT'))
-    EMAIL_USE_TLS = bool(int(get_env_variable('EMAIL_USE_TLS')))
+    EMAIL_BACKEND = get_env_variable("EMAIL_BACKEND")
+    DEFAULT_FROM_EMAIL = get_env_variable("DEFAULT_FROM_EMAIL")
+    EMAIL_HOST = get_env_variable("EMAIL_HOST")
+    EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
+    EMAIL_PORT = string_int_to_int(get_env_variable("EMAIL_PORT"))
+    EMAIL_USE_TLS = bool(int(get_env_variable("EMAIL_USE_TLS")))
 
 # #For security
-SECURE_SSL_REDIRECT = bool(int(get_env_variable('SECURE_SSL_REDIRECT')))
-SECURE_HSTS_SECONDS = int(get_env_variable('SECURE_HSTS_SECONDS'))
-SECURE_HSTS_INCLUDE_SUBDOMAINS = bool(int(get_env_variable('SECURE_HSTS_INCLUDE_SUBDOMAINS')))
-SECURE_HSTS_PRELOAD = bool(int(get_env_variable('SECURE_HSTS_PRELOAD')))
-SESSION_COOKIE_SECURE = bool(int(get_env_variable('SESSION_COOKIE_SECURE')))
-CSRF_COOKIE_SECURE = bool(int(get_env_variable('CSRF_COOKIE_SECURE')))
+SECURE_SSL_REDIRECT = bool(int(get_env_variable("SECURE_SSL_REDIRECT")))
+SECURE_HSTS_SECONDS = int(get_env_variable("SECURE_HSTS_SECONDS"))
+SECURE_HSTS_INCLUDE_SUBDOMAINS = bool(
+    int(get_env_variable("SECURE_HSTS_INCLUDE_SUBDOMAINS"))
+)
+SECURE_HSTS_PRELOAD = bool(int(get_env_variable("SECURE_HSTS_PRELOAD")))
+SESSION_COOKIE_SECURE = bool(int(get_env_variable("SESSION_COOKIE_SECURE")))
+CSRF_COOKIE_SECURE = bool(int(get_env_variable("CSRF_COOKIE_SECURE")))
 
 if DEBUG:
     # For Django Debug Toolbar
-    INSTALLED_APPS += ['debug_toolbar',]
-    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware',]
+    INSTALLED_APPS += [
+        "debug_toolbar",
+    ]
+    MIDDLEWARE += [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+    ]
 
 
 # comment for test commit

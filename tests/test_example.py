@@ -1,6 +1,6 @@
-### tests/test_example.py ###
+# tests/test_example.py
 
-# File included to prove test setup. 
+# File included to prove test setup.
 # Feel free to delete or replace with project level testing.
 
 import pytest

@@ -21,18 +21,19 @@ from config import settings
 
 urlpatterns = [
     # For Django Admin
-    path('skeladmin/', admin.site.urls),    #Remember to update URL before deployment
-    
+    path("skeladmin/", admin.site.urls),  # Remember to update URL before deployment
     # For User Management
-    path('accounts/', include('accounts.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    
+    path("accounts/", include("accounts.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
     # Local Apps
-    path('', include('main.urls')),
+    path("", include("main.urls")),
 ]
 
 
 if settings.DEBUG:
     # For Django Debug Toolbar
     import debug_toolbar
-    urlpatterns += [path('__debug__/', include(debug_toolbar.urls)),]
+
+    urlpatterns += [
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]
