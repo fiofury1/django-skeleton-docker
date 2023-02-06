@@ -9,9 +9,10 @@ This project makes no claim to be the "best way" to set up a Django project.
 
 ## Functionality & Configuration ##
 The project has been set up with the following functionality/configuration:
-- Code Formatting
+- Code Formatting / Styling
      - Python
           - black
+          - flake8 (79 character per line ignored)
           - isort
      - All code formatting packages installed as Pipenv [dev-packages]
 - Database
@@ -54,12 +55,16 @@ The project has been set up with the following functionality/configuration:
      - Uses pytest / pytest-django packages.
           - pytest settings found in pytest.ini.
           - Uses conftest.py files to define test data/fixtures.
-               - Fitures included:  browser, authenticated_browser, authenticated_user
+               - Includes global conftest.py in project root
+                    - Many useful fixtures predefined and used
+               - Includes placeholder conftest.py files in project level testing folder, 'main' app, and 'account' app.
           - Uses 'mixer' (package) for generating test data.
      - Uses pytest-dotenv to read environment variables into TEST environment.
      - Uses Selenium and ChromeDriver for functional/integration testing.  
           - Does not include a ChromeDriver in source code.  You will need to install ChromeDriver into your environment(s).
-     - Includes pytest-cov (i.e. "Coverage").  Provided .coveragerc file includes files/folders to ignore from coverage report.  
+     - Includes pytest-cov (i.e. "Coverage").  
+          - Provided .coveragerc file includes files/folders to ignore from coverage report.
+          - 100% Coverage  
      - Test file/folder structure
           - Project level tests to be included in the project level 'tests' folder
           (i.e. '<project_name>/tests/').  
@@ -81,7 +86,7 @@ The project has been set up with the following functionality/configuration:
           - Password Reset (with confirm email)
           - Password Change
      - HTML and email templates added to project level 'templates/registration/' folder.
-     - **WARNING:** User management setup is not included in automated test suite.  Testing is under development and will be released soon.
+     - Includes functional/Selenium tests of all user  management functions.
 - Virtual Environment
      - Pipenv
      - Environment variables loaded from .env by Pipenv in DEV. 
@@ -89,8 +94,9 @@ The project has been set up with the following functionality/configuration:
      - Django Dev Server used by default for DEV and TEST.
      - Gunicorn for PROD.
 - Other Packages
-     - django-debug-toolbar
-     - django-extensions
+     - [dev-packages]
+          - django-debug-toolbar
+          - django-extensions
 - Misc/Other
      - Time Zone as 'America/New York'
 
