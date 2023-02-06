@@ -118,7 +118,8 @@ After forking or cloning the project, you will need to:
 7.  Update Time Zone as needed (in settings.py).
 8.  Update Email Settings (in .env).
 9.  Update Allowed Hosts (in settings.py).
-10.  Customize:
+10.  Add 'staticfiles' directory in root of project (or run `$ python manage.py collectstatic` and directory will be created)
+11.  Customize:
      - Project level README.md to describe project.
      - Home Page Title and Heading.  Obviously, also delete the header about Django-Skeleton.
 
