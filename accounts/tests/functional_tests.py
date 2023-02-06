@@ -28,6 +28,16 @@ def test_login_and_logout(browser, live_server, test_user, test_user_password):
         browser.title == "Site Name"
     ), "Log In page 'Cancel' link should take user to home page."
     browser.back()
+    # Test 'Forgot Password?' Link
+    try:
+        link = browser.find_element(By.LINK_TEXT, "Forgot Password?")
+    except NoSuchElementException:
+        assert False, "Log In page should include 'Forgot Password?' link."
+    link.click()
+    assert (
+        browser.title == "Forgot Your Password?"
+    ), "Log In page 'Forgot Password?' link should take user to 'Forgot Your Password?' page."
+    browser.back()
     # Test Login - Incorrect credentials
     username_input = browser.find_element(By.NAME, "username")
     password_input = browser.find_element(By.NAME, "password")
@@ -171,6 +181,13 @@ def test_password_change(authenticated_browser, live_server, test_user_username,
     assert (
         "User" in browser.page_source
     ), "Page source incorrect.  Succesful login should redirect to home page with 'User:' displayed."
+
+
+# Test Password Reset
+@pytest.mark.django_db
+def test_password_reset():
+    assert False
+
 
 # SNIPPETS FOR DEVELOPMENT
 # time.sleep(5)
