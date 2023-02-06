@@ -166,7 +166,9 @@ def test_password_change(authenticated_browser, live_server, test_user_username,
     assert (
         browser.title == "Password Change Successful"
     ), "Successful password change should redirect to 'Password Change Successful' page"
-
+    assert (
+        browser.current_url == live_server.url + "/accounts/password_change/done/"
+    ), "Successful password change should redirect to [live server url]+'password_change/done/'"
     # Test user can now log in with change password
     browser.get(live_server.url + reverse("login"))
     username_field = browser.find_element(By.NAME, "username")
@@ -184,9 +186,13 @@ def test_password_change(authenticated_browser, live_server, test_user_username,
 
 
 # Test Password Reset
-@pytest.mark.django_db
-def test_password_reset():
-    assert False
+# @pytest.mark.django_db
+# def test_password_reset(browser, live_server):
+#     # Setup
+#     url = live_server.url + reverse("password_change")
+#     browser.get(url)
+
+#     assert False
 
 
 # SNIPPETS FOR DEVELOPMENT
