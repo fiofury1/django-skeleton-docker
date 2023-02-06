@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
-### Test Log In and Logout ###
+# Test Log In and Logout
 @pytest.mark.django_db
 def test_login_and_logout(browser, live_server, test_user, test_user_password):
     # Setup
