@@ -1,6 +1,8 @@
+import re
 import time
 
 import pytest
+from django.core import mail
 from django.urls import reverse
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -135,15 +137,20 @@ def test_signup(browser, live_server):
         "User" in browser.page_source
     ), "Page source incorrect.  Succesful login should redirect to home page with 'User:' displayed."
 
+
 # Test Password Change
 @pytest.mark.django_db
-def test_password_change(authenticated_browser, live_server, test_user_username, test_user_password):
+def test_password_change(
+    authenticated_browser, live_server, test_user_username, test_user_password
+):
     # Setup
     url = live_server.url + reverse("password_change")
     browser = authenticated_browser
     browser.get(url)
     # Test page title
-    assert browser.title == "Password Change", "Title of 'Password Change' page should be 'Password Change'."
+    assert (
+        browser.title == "Password Change"
+    ), "Title of 'Password Change' page should be 'Password Change'."
     # # Test url
     assert (
         browser.current_url == live_server.url + "/accounts/password_change/"
@@ -159,9 +166,13 @@ def test_password_change(authenticated_browser, live_server, test_user_username,
     new_password1_field.send_keys(NEW_PASSWORD1)
     new_password2_field.send_keys(NEW_PASSWORD2)
     try:
-        submit_button = browser.find_element(By.XPATH, '//input[@value="Change my password"]')
+        submit_button = browser.find_element(
+            By.XPATH, '//input[@value="Change my password"]'
+        )
     except NoSuchElementException:
-        assert False, "Password Change page should have 'Change my password' submit button."
+        assert (
+            False
+        ), "Password Change page should have 'Change my password' submit button."
     submit_button.click()
     assert (
         browser.title == "Password Change Successful"
@@ -186,13 +197,82 @@ def test_password_change(authenticated_browser, live_server, test_user_username,
 
 
 # Test Password Reset
-# @pytest.mark.django_db
-# def test_password_reset(browser, live_server):
-#     # Setup
-#     url = live_server.url + reverse("password_change")
-#     browser.get(url)
-
-#     assert False
+@pytest.mark.django_db
+def test_password_reset(browser, live_server, test_user):
+    # Setup
+    url = live_server.url + reverse("password_reset")
+    browser.get(url)
+    # Test 'Password Reset' page form
+    email_field = browser.find_element(By.NAME, "email")
+    email_field.send_keys(test_user.email)
+    submit_button = browser.find_element(
+        By.XPATH, '//input[@value="Send me instructions!"]'
+    )
+    submit_button.click()
+    assert (
+        browser.title == "Email Sent"
+    ), "'Password Reset' form should redirect to 'Email Sent' page."
+    assert (
+        browser.current_url == live_server.url + "/accounts/password_reset/done/"
+    ), "'Password Reset' form should redirect to [live server url]+'/accounts/password_reset/done/'."
+    # Test 'Password Reset' email
+    # - Test that one message has been sent.
+    assert (
+        len(mail.outbox) == 1
+    ), "'Password Reset' form submission with legit user email will send password reset email."
+    email = mail.outbox[0]
+    # - Test 'Password Reset' email subject
+    assert (
+        email.subject == "Password Reset"
+    ), "'Password Reset' email subject should be 'Password Reset'."
+    # - Get password reset link from email body, and test that it leads to the 'Password Reset' page.
+    password_reset_url = re.findall("http://.+", email.body)[0]
+    browser.get(password_reset_url)
+    assert (
+        browser.title == "Enter new password"
+    ), "'Password Reset' link should direct to 'Enter new password' page."
+    # - test password reset URL - IGNORE
+    # Test 'Password Reset' form
+    NEW_PASSWORD1 = "my_new_password123"
+    NEW_PASSWORD2 = "my_new_password123"
+    new_password1_field = browser.find_element(By.NAME, "new_password1")
+    new_password2_field = browser.find_element(By.NAME, "new_password2")
+    new_password1_field.send_keys(NEW_PASSWORD1)
+    new_password2_field.send_keys(NEW_PASSWORD2)
+    try:
+        submit_button = browser.find_element(
+            By.XPATH, '//input[@value="Change my password"]'
+        )
+    except NoSuchElementException:
+        assert (
+            False
+        ), "Password Reset page should have 'Change my password' submit button."
+    submit_button.click()
+    assert (
+        browser.title == "Password reset complete"
+    ), "Successful password reset should redirect to 'Password reset complete' page"
+    assert (
+        browser.current_url == live_server.url + "/accounts/reset/done/"
+    ), "Successful password reset should redirect to [live server url]+'reset/done/'"
+    # Test click link to 'Log In page':
+    try:
+        link = browser.find_element(By.LINK_TEXT, "Log In page")
+    except NoSuchElementException:
+        assert False, "'Password reset complete' page should have 'Log In page' link."
+    link.click()
+    # Test user can now log in with new password
+    username_field = browser.find_element(By.NAME, "username")
+    password_field = browser.find_element(By.NAME, "password")
+    username_field.send_keys(test_user.username)
+    password_field.send_keys(NEW_PASSWORD1)
+    submit_button = browser.find_element(By.XPATH, '//button[text()="Log In"]')
+    submit_button.click()
+    assert (
+        browser.title == "Site Name"
+    ), "Page title incorrect.  Successful login should redirect to home page'."
+    assert (
+        "User" in browser.page_source
+    ), "Page source incorrect.  Succesful login should redirect to home page with 'User:' displayed."
 
 
 # SNIPPETS FOR DEVELOPMENT
