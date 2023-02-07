@@ -2,7 +2,7 @@
 
 A Django project starter template intentionally preconfigured with "bare bones" functionality.
 
-Current Django Version: &nbsp;Django 4.1.5
+Current Django Version: &nbsp;Django 4.1.6
 
 ### Disclaimers: ###
 This project makes no claim to be the "best way" to set up a Django project.
@@ -123,8 +123,17 @@ After forking or cloning the project, you will need to:
      - Project level README.md to describe project.
      - Home Page Title and Heading.  Obviously, also delete the header about Django-Skeleton.
 
-## Updating Django (Section In Progress) ##
-When updating Django... 
+## Updating Django and Other Dependencies (SECTION UNDER CONSTRUCTION) ##
+Since Django has a regular release cycle, I use new Django releases as a trigger to update Django and all other project dependencies. 
+
+Note per [Django documentation](https://docs.djangoproject.com/en/4.1/howto/upgrade-version/#required-reading):
+> If you’re upgrading through more than one feature version (e.g. 2.0 to 2.2), 
+it’s usually easier to upgrade through each feature release incrementally (2.0 to 2.1 to 2.2) 
+rather than to make all the changes for each feature release at once. For each feature release, 
+use the latest patch release (e.g. for 2.1, use 2.1.15).
+
+To update:
+- Recommend first resolving any depreciation warning messages issued when running test suite in pytest. 
 - Update all packages/dependencies.
      (Hints:  
      - Use `$ pipenv update --outdated` to see which packages are out of date
