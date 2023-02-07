@@ -49,7 +49,7 @@ The project has been set up with the following functionality/configuration:
                - Can be used or scrapped.
           - 'accounts' app for user management
 - Source Control / Repository
-     - Git (includes .gitignore)
+     - git (includes .gitignore)
      - [GitHub Repo](https://github.com/fiofury1/django-skeleton)
 - Static Files
      - Configured to use WhiteNoise for both development and production.
@@ -112,7 +112,9 @@ The project has been set up with the following functionality/configuration:
 ## Forking or Cloning ##
 After forking or cloning the project, you will need to:
 
-The following does not cover editor/IDE specific setup (ex. create project/workspace in your editor/IDE).
+The following does not cover:
+-  Editor/IDE specific setup (ex. create project/workspace in your editor/IDE)
+-  Instructions for setting up the repo/remote with git/GitHub.
 
 1.  Create a new virtual environment and install dependencies using Pipenv.  
      - This should be done from the root folder of the project.  
@@ -124,12 +126,13 @@ The following does not cover editor/IDE specific setup (ex. create project/works
 3.  Set up PostgreSQL user and local Postgres database.
 4.  Create an .env file in project root (or load environment variables in another way).
 5.  Update Database settings (in .env).
-6.  Update Django Admin URL (for security) (in project urls.py).
-7.  Update Time Zone as needed (in settings.py).
-8.  Update Email Settings (in .env).
-9.  Update Allowed Hosts (in settings.py).
-10.  Add 'staticfiles' directory in root of project (or run `$ python manage.py collectstatic` and directory will be created)
-11.  Customize:
+6.  Create Django Admin superuser
+7.  Update Django Admin URL (for security) (in project urls.py).
+8.  Update Time Zone as needed (in settings.py).
+9.  Update Email Settings (in .env).
+10.  Update Allowed Hosts (in settings.py).
+11.  Add 'staticfiles' directory in root of project (or run `$ python manage.py collectstatic` and directory will be created)
+12.  Customize:
      - Project level README.md to describe project.
      - Home Page Title and Heading.  Obviously, also delete the header about Django-Skeleton.
 
