@@ -112,6 +112,8 @@ The project has been set up with the following functionality/configuration:
 ## Forking or Cloning ##
 After forking or cloning the project, you will need to:
 
+The following does not cover editor/IDE specific setup (ex. create project/workspace in your editor/IDE).
+
 1.  Create a new virtual environment and install dependencies using Pipenv.  
      - This should be done from the root folder of the project.  
      - The Python version used for your virtual environment needs to match the version in the Pipfile.
