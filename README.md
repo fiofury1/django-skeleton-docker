@@ -1,8 +1,10 @@
-# Django-Skeleton - BETA - UNDER DEVELOPMENT #
+# Django-Skeleton #
 
 A Django project starter template intentionally preconfigured with "bare bones" functionality.
 
-Current Django Version: &nbsp;Django 4.1.6
+**Current Django Version:** &nbsp;Django 4.1.6
+
+Deployed on [Heroku](https://dj-skel.herokuapp.com/)
 
 ### Disclaimers: ###
 This project makes no claim to be the "best way" to set up a Django project.
@@ -39,10 +41,16 @@ The project has been set up with the following functionality/configuration:
 - Front End Frameworks:
      - CSS:  None
      - JavaScript:  None
-- 'main' app
-     - Can be used or scrapped.
-- Source Control
+- Project/App Structure
+     - Project
+          - 'config' folder with settings.py, wsgi.py, asgi.py, and project-level urls.py.
+     - Apps
+          - 'main' app placeholder
+               - Can be used or scrapped.
+          - 'accounts' app for user management
+- Source Control / Repository
      - Git (includes .gitignore)
+     - [GitHub Repo](https://github.com/fiofury1/django-skeleton)
 - Static Files
      - Configured to use WhiteNoise for both development and production.
      - During development, configured to look for static files in 'static/' folder in root of project and apps.
