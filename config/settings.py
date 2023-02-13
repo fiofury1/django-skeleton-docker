@@ -215,6 +215,7 @@ LOGIN_REDIRECT_URL = "main:home"
 LOGOUT_REDIRECT_URL = "main:home"
 
 # Email - Uncomment/refactor as necessary to support email needs.
+DEFAULT_FROM_EMAIL = get_env_variable("DEFAULT_FROM_EMAIL")
 if ENV == "TEST":
     EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 elif ENV == "DEV":
@@ -222,7 +223,6 @@ elif ENV == "DEV":
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     # To Use SMTP
     # EMAIL_BACKEND = get_env_variable('EMAIL_BACKEND')
-    # DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL')
     # EMAIL_HOST = get_env_variable('EMAIL_HOST')
     # EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
     # EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
@@ -233,7 +233,6 @@ else:
     # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     # To Use SMTP
     EMAIL_BACKEND = get_env_variable("EMAIL_BACKEND")
-    DEFAULT_FROM_EMAIL = get_env_variable("DEFAULT_FROM_EMAIL")
     EMAIL_HOST = get_env_variable("EMAIL_HOST")
     EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
