@@ -115,6 +115,7 @@ After forking or cloning the project, you will need to:
 The following does not cover:
 -  Editor/IDE specific setup (ex. create project/workspace in your editor/IDE)
 -  Instructions for setting up the repo/remote with git/GitHub.
+-  Tweaks related to using SQLite.
 
 1.  Create a new virtual environment and install dependencies using Pipenv.  
      - This should be done from the root folder of the project.  
@@ -123,16 +124,16 @@ The following does not cover:
           - **WARNING:**  Using `pipenv install` will install dependencies ***from the Pipfile***.  The Pipfile in this project does not currently specify versions of packages, which means the latest version will be installed.  To create a deterministic build of the project, then use `pipenv sync` instead.  This will result in packages being installed as specified in the Pipfile.lock file.
           - Use `$ pipenv install` to install non-dev dependencies.  
           - Use `$ pipenv install --dev` to install all dependencies including dev dependencies. 
-3.  Set up PostgreSQL user and local Postgres database.
-4.  Create an .env file in project root (or load environment variables in another way).
-5.  Update Database settings (in .env).
-6.  Create Django Admin superuser
-7.  Update Django Admin URL (for security) (in project urls.py).
-8.  Update Time Zone as needed (in settings.py).
-9.  Update Email Settings (in .env).
-10.  Update Allowed Hosts (in settings.py).
-11.  Add 'staticfiles' directory in root of project (or run `$ python manage.py collectstatic` and directory will be created)
-12.  Customize:
+2.  In PostgreSQL, set up PostgreSQL user for project and local Postgres database.
+3.  Create an .env file in project root (or load environment variables in another way).  If using .env file, see EXAMPLE.env for example .env file.
+4.  Update Database variables in .env to local Postgres.
+5.  Create Django Admin superuser.
+6.  Update Django Admin URL (for security) (in project urls.py).
+7.  Update Time Zone as needed (in settings.py).
+8.  Update Email Settings (in .env).
+9.  Update Allowed Hosts (in settings.py).
+10.  Add 'staticfiles' directory in root of project (or run `$ python manage.py collectstatic` and directory will be created)
+11.  Customize:
      - Project level README.md to describe project.
      - Home Page Title and Heading.  Obviously, also delete the header about Django-Skeleton.
 
