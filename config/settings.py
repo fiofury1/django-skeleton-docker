@@ -187,9 +187,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# URL where Django stages static files when site is running, so that browsers can request 
+# them via HTTP when building a page that contains static files.
 STATIC_URL = "/static/"
 
-# Tells Django where to check for static files other than apps in development.
+# Tells Django where to check for static files other than apps.  
+# Used in development for serving static files.
+# Used by 'collectstatic' command when compiling static files.
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
