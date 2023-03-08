@@ -3,13 +3,13 @@
 # For project wide functional/integration tests.
 
 # Test Selenium setup
-import time
+# import time
 
 
-def test_browser(browser):
-    browser.get("http://www.google.com/")
-    # time.sleep(5)
-    assert True
+# def test_browser(browser):
+#     browser.get("http://www.google.com/")
+#     # time.sleep(5)
+#     assert True
 
 
 # SNIPPETS FOR DEVELOPMENT

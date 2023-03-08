@@ -2,6 +2,7 @@
 omit = 
      *apps.py,
      *asgi.py,
+     */data/*,
      manage.py, 
      *migrations/*,
      *settings*,
