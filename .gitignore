@@ -15,3 +15,5 @@ staticfiles
 htmlcov
 #Visual Studio Code Workspace
 *.code-workspace
+#PostgreSQL
+data

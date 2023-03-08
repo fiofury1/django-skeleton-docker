@@ -1,6 +1,30 @@
-# Django-Skeleton #
+# Django-Skeleton-Docker #
 
-A Django project starter template intentionally preconfigured with "bare bones" functionality.
+[Django-Skeleton](https://github.com/fiofury1/django-skeleton) "Dockerized".
+
+
+-- BELOW UNDER CONSTRUCTION --
+## Docker Compose Notes ##
+- Create Superuser
+     - `docker compose exec web python manage.py creatsuperuser`
+- Migrations
+     - NOTE about sudo chown -R $USER:$USER data
+     - `docker compose exec web python manage.py makemigrations`
+     - `docker compose exec web python manage.py migrate`
+- Running tests:
+     - `docker compose exec web pytest`
+
+
+NOTES:
+- Steps about migrations
+- Steps about creating a superuser
+
+
+
+---
+
+
+
 
 **Current Django Version:** &nbsp;Django 4.1.7
 
@@ -8,6 +32,9 @@ Deployed on [Heroku](https://dj-skel.herokuapp.com/)
 
 ### Disclaimers: ###
 This project makes no claim to be the "best way" to set up a Django project.
+
+
+
 
 ## Functionality & Configuration ##
 The project has been set up with the following functionality/configuration:

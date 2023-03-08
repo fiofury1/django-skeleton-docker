@@ -72,11 +72,9 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    # Tells Django to use 'whitenoise' in development rather than Django default.
-    "whitenoise.runserver_nostatic",
-    "django.contrib.staticfiles",
     # Third-party apps
-    "django_extensions",
+    "whitenoise.runserver_nostatic",# Tells Django to use 'whitenoise' in development rather than Django default.
+    "django.contrib.staticfiles",
     # Local apps
     "accounts",
     "main",
@@ -129,24 +127,24 @@ if ENV == "TEST":
     }
 else:
     # Database setting for SQLite
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': BASE_DIR / 'db.sqlite3',
-    #     }
-    # }
-
-    # Database settings for PostgreSQL
     DATABASES = {
-        "default": {
-            "ENGINE": get_env_variable("DB_ENGINE"),
-            "NAME": get_env_variable("DB_NAME"),
-            "USER": get_env_variable("DB_USER"),
-            "PASSWORD": get_env_variable("DB_PASSWORD"),
-            "HOST": get_env_variable("DB_HOST"),
-            "PORT": string_int_to_int(get_env_variable("DB_PORT")),
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
+    # Database settings for PostgreSQL
+    # DATABASES = {
+    #     "default": {
+    #         "ENGINE": get_env_variable("DB_ENGINE"),
+    #         "NAME": get_env_variable("DB_NAME"),
+    #         "USER": get_env_variable("DB_USER"),
+    #         "PASSWORD": get_env_variable("DB_PASSWORD"),
+    #         "HOST": get_env_variable("DB_HOST"),
+    #         "PORT": string_int_to_int(get_env_variable("DB_PORT")),
+    #     }
+    # }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -256,6 +254,7 @@ CSRF_COOKIE_SECURE = bool(int(get_env_variable("CSRF_COOKIE_SECURE")))
 if DEBUG:
     # For Django Debug Toolbar
     INSTALLED_APPS += [
+        "django_extensions",
         "debug_toolbar",
     ]
     MIDDLEWARE += [
