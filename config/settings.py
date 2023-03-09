@@ -143,16 +143,11 @@ else:
     # }
 
     # Database settings for PostgreSQL
-    DATABASES = {
-        "default": {
-            "ENGINE": get_env_variable("DB_ENGINE"),
-            "NAME": get_env_variable("DB_NAME"),
-            "USER": get_env_variable("DB_USER"),
-            "PASSWORD": get_env_variable("DB_PASSWORD"),
-            "HOST": get_env_variable("DB_HOST"),
-            "PORT": string_int_to_int(get_env_variable("DB_PORT")),
-        }
-    }
+    import dj_database_url
+    DATABASE_URL = get_env_variable("DATABASE_URL"),
+    db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+    DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
