@@ -243,6 +243,7 @@ else:
 
 # #For security
 SECURE_SSL_REDIRECT = bool(int(get_env_variable("SECURE_SSL_REDIRECT")))
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")   #Added for Heroku deploy with Docker
 SECURE_HSTS_SECONDS = int(get_env_variable("SECURE_HSTS_SECONDS"))
 SECURE_HSTS_INCLUDE_SUBDOMAINS = bool(
     int(get_env_variable("SECURE_HSTS_INCLUDE_SUBDOMAINS"))
