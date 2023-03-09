@@ -20,9 +20,9 @@ COPY Pipfile /code
 # RUN chmod u+x ./scripts/install_dependencies.sh && ./scripts/install_dependencies.sh
 
 # For Dev
-# RUN pipenv install --system --dev --skip-lock
+RUN pipenv install --system --dev --skip-lock
 # For Prod
-RUN pipenv install --system --skip-lock
+# RUN pipenv install --system --skip-lock
 
 # Copy project
 COPY . .
