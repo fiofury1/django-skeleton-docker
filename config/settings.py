@@ -142,11 +142,19 @@ else:
     #     }
     # }
 
-    # Database settings for PostgreSQL
-    import dj_database_url
-    DATABASE_URL = get_env_variable("DATABASE_URL"),
-    db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
-    DATABASES['default'].update(db_from_env)
+    # Database settings for Heroku Postgres add-on
+    try:
+        import dj_database_url
+        DATABASE_URL = get_env_variable("DATABASE_URL"),
+        db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+        DATABASES['default'].update(db_from_env)
+    except:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        } 
 
 
 # Password validation
