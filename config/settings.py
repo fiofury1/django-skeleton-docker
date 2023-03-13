@@ -73,7 +73,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     # Third-party apps
-    "whitenoise.runserver_nostatic",# Tells Django to use 'whitenoise' in development rather than Django default.
+    "whitenoise.runserver_nostatic",  # Tells Django to use 'whitenoise' in development rather than Django default.
     "django.contrib.staticfiles",
     # Local apps
     "accounts",
@@ -128,33 +128,25 @@ if ENV == "TEST":
 elif ENV == "DEV":
     # Database setting for SQLite
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
 else:
-    # Database setting for SQLite
     # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': BASE_DIR / 'db.sqlite3',
-    #     }
+    #     "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@db/postgres")
     # }
+    import dj_database_url
 
-    # Database settings for Heroku Postgres add-on
-    try:
-        import dj_database_url
-        DATABASE_URL = get_env_variable("DATABASE_URL"),
-        db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
-        DATABASES['default'].update(db_from_env)
-    except:
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
-            }
-        } 
+    DATABASE_URL = get_env_variable("DATABASE_URL")
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
 
 
 # Password validation
@@ -185,8 +177,8 @@ TIME_ZONE = "America/New_York"
 
 USE_I18N = True
 
-# Removed per testing warning:  "RemovedInDjango50Warning: The USE_L10N setting is deprecated. 
-# Starting with Django 5.0, localized formatting of data will always be enabled. 
+# Removed per testing warning:  "RemovedInDjango50Warning: The USE_L10N setting is deprecated.
+# Starting with Django 5.0, localized formatting of data will always be enabled.
 # For example Django will display numbers and dates using the format of the current locale."
 # USE_L10N = True
 
@@ -196,11 +188,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-# URL where Django stages static files when site is running, so that browsers can request 
+# URL where Django stages static files when site is running, so that browsers can request
 # them via HTTP when building a page that contains static files.
 STATIC_URL = "/static/"
 
-# Tells Django where to check for static files other than apps.  
+# Tells Django where to check for static files other than apps.
 # Used in development for serving static files.
 # Used by 'collectstatic' command when compiling static files.
 STATICFILES_DIRS = [
@@ -254,7 +246,10 @@ else:
 
 # #For security
 SECURE_SSL_REDIRECT = bool(int(get_env_variable("SECURE_SSL_REDIRECT")))
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")   #Added for Heroku deploy with Docker
+SECURE_PROXY_SSL_HEADER = (
+    "HTTP_X_FORWARDED_PROTO",
+    "https",
+)  # Added for Heroku deploy with Docker
 SECURE_HSTS_SECONDS = int(get_env_variable("SECURE_HSTS_SECONDS"))
 SECURE_HSTS_INCLUDE_SUBDOMAINS = bool(
     int(get_env_variable("SECURE_HSTS_INCLUDE_SUBDOMAINS"))
