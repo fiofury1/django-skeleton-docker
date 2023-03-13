@@ -12,7 +12,9 @@ services:
     # env_file:
     #   - .env-db
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     # command: python manage.py runserver 0.0.0.0:8000
     command: gunicorn config.wsgi -b 0.0.0.0:8000
     volumes:
