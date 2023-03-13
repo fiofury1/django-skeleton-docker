@@ -18,8 +18,6 @@ WORKDIR /code
 # Install dependencies
 RUN pip install pipenv
 COPY Pipfile /code
-# COPY scripts/install_dependencies.sh /code/scripts/install_dependencies.sh
-# RUN chmod u+x ./scripts/install_dependencies.sh && ./scripts/install_dependencies.sh
 
 # For Dev
 RUN pipenv install --system --dev --skip-lock
