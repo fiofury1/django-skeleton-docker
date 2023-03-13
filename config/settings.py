@@ -134,9 +134,6 @@ elif ENV == "DEV":
         }
     }
 else:
-    # DATABASES = {
-    #     "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@db/postgres")
-    # }
     import dj_database_url
 
     DATABASE_URL = get_env_variable("DATABASE_URL")
