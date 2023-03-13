@@ -22,7 +22,7 @@ COPY Pipfile /code
 # For Dev
 # RUN pipenv install --system --dev --skip-lock
 # For Prod
-RUN pipenv install --skip-lock
+RUN pipenv install --system --skip-lock
 
 # Copy project
 COPY . .
