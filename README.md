@@ -28,3 +28,7 @@ With the exception of the variations/additions below, the project has the same f
           - `python manage.py migrate` - Manually executed in running container
                - Local:       `docker compose exec web python manage.py migrate`
                - Heroku CLI:  `heroku run python manage.py migrate`
+- Static Files
+     - Must manually run `collectstatic` in running container
+          - Local:       `docker compose exec web python manage.py collectstatic`
+          - Heroku CLI:  `heroku run python manage.py collectstatic` (<- Not sure if this is automatically run by Heroku)
