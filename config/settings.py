@@ -134,6 +134,16 @@ elif ENV == "DEV":
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
+    # DATABASES = {
+    #     "default": {
+    #         "ENGINE": get_env_variable("DB_ENGINE"),
+    #         "NAME": get_env_variable("DB_NAME"),
+    #         "USER": get_env_variable("DB_USER"),
+    #         "PASSWORD": get_env_variable("DB_PASSWORD"),
+    #         "HOST": get_env_variable("DB_HOST"),
+    #         "PORT": string_int_to_int(get_env_variable("DB_PORT")),
+    #     }
+    # }
 else:
     import dj_database_url
 
