@@ -8,7 +8,7 @@ Deployed on [Heroku](https://dj-skel-docker.herokuapp.com/)
 With the exception of the variations/additions below, the project has the same functionality and configuration as [Django-Skeleton](https://github.com/fiofury1/django-skeleton).
 - Deployment
      - Docker based deployment to Heroku using heroku.yml.
-     - Used dj-database-url package to parse DATABASE_URL env variable provided by Heroku into settings.DATABASES setting.
+     - Uses 'dj-database-url' package to parse DATABASE_URL env variable provided by Heroku into settings.DATABASES setting.
 - Docker / Docker-Compose
      - Has two containers (web application and database)
      - Run locally using docker-compose.yml
